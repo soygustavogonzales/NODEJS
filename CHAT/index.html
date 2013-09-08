@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo de Socket.IO + Express</title>
+	<link rel="stylesheet" href=""/>
+	<style>
+	</style>
+</head>
+	<body>
+		<h1>Ejemplo de socket.io + express</h1>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		var socket=io.connect();
+		socket.on('bienvenido',function(data){
+			console.log(data.text);
+		});
+
+
+		</script>
+	</body>
+</html>
