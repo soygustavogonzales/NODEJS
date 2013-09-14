@@ -53,5 +53,8 @@ io.sockets.on('connection', function(socket) {
 		console.log('Pizarra Limpia');
 		io.sockets.emit('clean',true);
 	});
-
+	socket.on('click',function(){
+		//console.log('Pizarra Limpia');
+		io.sockets.emit('click');
+	});
 });
