@@ -17,7 +17,6 @@ function canvasApp() {
 
 	//Si el navegador soporta canvas inicio la app.
 	if(canvasSupport()){
-		var boton = document.getElementById("boton");
 		var theCanvas = document.getElementById("canvas"),
 			context = theCanvas.getContext("2d"),
 			buttonClean = document.getElementById("clean");
@@ -64,9 +63,7 @@ function canvasApp() {
 			context.stroke();
 
 		}
-		function avisar(){
-			alert("me hiciste click");
-		}
+
 		//Usamos la librería socket.io para comunicarnos con el servidor mediante websockets
 		socket.on('connect', function(){
 
@@ -113,16 +110,8 @@ function canvasApp() {
 
 			},false);
 
-			boton.addEventListener("click",function(){
-				console.log("me hiciste click");
-				avisar();
-				socket.emit("click");
-			},false);
 
 			//Recibimos mediante websockets las ordenes de dibujo
-			socket.on('click', function(){
-				avisar();
-			})
 			socket.on('down',function(e){
 				if(!click){
 					block = true;

@@ -1,4 +1,9 @@
+#temporales y logs
 *.log
 *.temp
+#archivos de compilacion(no necesarios con node-pero por sea caso-)
 *.[oa]
+#autogenerados por ftp
 *.ftpquota
+#archivos tipo backup, recuperados de algun commit en especial.
+*.bak
