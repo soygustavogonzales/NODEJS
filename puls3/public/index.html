@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+           <meta charset="utf-8">
+           <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+           <meta description="Es un miniproyecto derivado del curso de #mejorfront" />
+           <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1.0" />
+           <title>PicPuls3</title>
+           <link href="css/normalize.css" rel="stylesheet" type="text/css">
+	   
+           <link href="css/estilos.css" rel="stylesheet" type="text/css">
+           <script src="js/vendors/modernizr.js"></script>
+           
+</head>
+<body>
+
+	<header>
+		<figure id="logo"><img src="img/logo.png" alt="logo" /></figure>
+			<div id="titulo">
+				<h1>PicPuls3</h1>
+				<nav id="main_nav">
+					<ul>
+						<li id="menu_buttom"><a href="#">Menu</a></li>
+					</ul>
+					<ul class="menu_items">
+						<li><a href="#"><span class="icon-home"> </span>Home</a></li>
+						<li><a href="#"><span class="icon-info"> </span>About</a></li>
+						<li><a href="https://github.com/Sergiop79/puls3-1" target="_blank"><span class="icon-github"> </span>Github</a></li>
+					</ul>
+				</nav>
+			</diV>
+		<figure id="user"><img src="img/avatar.jpg" alt="avatar" /></figure>
+	</header>
+	<section id="maincontent">
+		<article id="formulario" class="form">
+			<input id="entrada" class="entrada" type="text"  name="title" placeholder="Título de la imagen" autofocus />
+			<input id="author" class="entrada" type="text"  name="author" placeholder="Autor de la imagen" />
+			<input id="url" class="entrada" type="url" name="url"  placeholder="URL de la imagen" />
+			<br>
+			<button id="limpiar">Limpiar</button>
+			<button id="enviar">Enviar</button>
+		</article>
+		</section>
+	<script id="itemTemplate" type="text/template">
+	
+		<figure><img src="<%= image %>" alt="<%= title %>" /></figure>
+
+		<div class="text">
+			<h3><%= title %></h3>
+			<p class="author"><%= author %></p>
+		</div>
+
+		<div class="votes">
+			<span class="icon-thumbs-up up"></span>
+			<span class="points"><%= votes %></span>
+			<span class="icon-thumbs-up-2 down"></span>
+		</div>
+		
+	</script>
+	<script src="js/vendors/jquery-2.0.2.min.js"></script>
+	<script src="js/vendors/underscore-min.js"></script>
+	<script src="js/vendors/backbone-min.js"></script>
+	<script src="js/models/picture.js"></script>
+	<script src="js/collections/pictures.js"></script>
+	<script src="js/views/itemview.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

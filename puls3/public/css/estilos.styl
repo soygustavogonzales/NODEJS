@@ -1,0 +1,168 @@
+rojo = rgba(181,0,0,1)
+negro = rgba(0,0,0,1)
+gris = #eee
+
+@import "fonts.styl"
+
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+
+
+body
+	background-color #efefef
+	font-size 16px
+	min-width 320px
+	text-align center
+
+	section
+		position relative
+		top 7em
+		article
+			border 5px solid white
+			box-shadow 0 0 5px #888888
+			display inline-block
+			vertical-align top
+			margin-bottom 1em
+			position relative
+			width 90%
+
+			figure
+				cursor pointer
+			.text
+				background rgba(0,0,0,0.6)
+				bottom 0
+				color white
+				font-family 'open_sansregular'
+				margin-bottom 0
+				position absolute
+				width 100%
+				h3
+					margin-left 0.5em
+					padding-top 0.1em
+					text-align left
+				.author
+					text-align right
+					margin-right 0.4em
+					margin-bottom 0.2em
+					margin-top 0.2em
+
+			.up, .down
+				color white
+				cursor pointer
+				display block
+				margin-top 0.5em
+				margin-bottom 0.5 em
+
+			.points
+				color white
+				display block
+				font-weight bold
+			.votes
+				background rgba(0,0,0,0.7)
+				border-radius 0 0 0 5px
+				padding-top 0.2em
+				padding-bottom 0.2em
+				position absolute
+				right 0
+				top 0
+				width 40px
+
+			#formulario
+			.entrada
+				border solid 0.7px negro
+				border-radius 3px
+				margin-top 1em
+				padding 0.5em 0.5em
+			.entrada:focus
+				box-shadow 0 0 3px rojo
+			button
+				border solid 0.7px rojo
+				border-radius 5px
+				margin-top 1em
+				margin-bottom 1em
+				padding 0.5em 0.8em
+			button:hover
+				border solid 0.7px negro
+								
+	
+
+h1, h2, h3, hgroup, ul, p
+	padding 0
+	margin 0
+
+img
+	width 100%
+
+header
+	background-color gris   //color del header
+	border-bottom 5px solid negro
+	overflow hidden
+	padding 5px 0
+	position fixed
+	width 100%
+	min-width 320px
+	text-align center
+	z-index 2
+
+	#logo, #titulo, #user
+		display inline-block
+		vertical-align middle
+
+	#logo, #user
+		height 50px
+		width 50px
+
+	#logo
+		float left
+		margin-left 10px
+	
+	#main_nav
+		border-radius 5px
+		background-color #ddd
+		padding 1em
+		
+		a
+			background-color white
+			border solid negro 3px
+			border-radius 5px
+			color negro
+			padding 5px 5px 
+			text-decoration none
+			transition all ease 0.1s
+		a:hover
+			border solid 5px rojo
+			color rojo
+
+		h1
+			margin-bottom 10px
+
+		li
+			display block
+			list-style none
+			
+		.menu_items
+			display	none
+			margin-top 2em
+			li
+				margin-top 1.5em
+	
+	#user
+		float right
+		box-shadow 0px 0px 10px #888888
+		border solid white 5px
+		margin-right 10px
+	
+	#titulo
+		width 50%
+
+		h1
+			color rojo
+			font-family 'LeckerliOneRegular'
+			
+.formulario
+	width 300px
+		
+
+@import "responsive.styl"

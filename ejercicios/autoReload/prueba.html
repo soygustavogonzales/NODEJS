@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var files_less = ['../autoReload/public/stylessheet/less/styles.less'];
+		var options = {
+				    paths :(function(ruta){
+		                      return ruta.substring(0,ruta.lastIndexOf('/'));
+		                     })(files_less[0])//['../autoReload/public/stylessheet/less']
+				    ,outputDir	: (function(ruta){
+				                      ruta = ruta.substring(0,ruta.lastIndexOf('/'));
+				                      return ruta.substring(0,ruta.lastIndexOf('/'))+'/css';
+		       						})(files_less[0])//"../autoReload/public/stylessheet/css"
+				    
+			    	};
+		console.log(options.paths);
+		console.log(options.outputDir);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

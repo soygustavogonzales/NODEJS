@@ -20,7 +20,6 @@ function ejecutar(){
 		console.log("req.url: "+req.url);
 		console.log("rutaArchivo: "+rutaArchivo);
 		console.log("extension: "+extension)
-
 		
 		ruta.exists(rutaArchivo,function(existe){
 			if(existe){
@@ -31,6 +30,7 @@ function ejecutar(){
 						res.end();
 					}else{
 						res.writeHead(200,{'Content-type':tipoContenido});
+						console.log("tipoContenido: "+tipoContenido);
 						res.end(contenido);
 					}
 				});

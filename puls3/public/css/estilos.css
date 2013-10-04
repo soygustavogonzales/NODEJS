@@ -1,0 +1,50 @@
+@font-face{font-family:'open_sansregular';src:url("fonts/OpenSans-Regular-webfont.eot");src:url("fonts/OpenSans-Regular-webfont.eot?#iefix") format('embedded-opentype'),url("fonts/OpenSans-Regular-webfont.woff") format('woff'),url("fonts/OpenSans-Regular-webfont.ttf") format('truetype'),url("fonts/OpenSans-Regular-webfont.svg#open_sansregular") format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'LeckerliOneRegular';src:url("fonts/LeckerliOne-Regular-webfont.eot");src:url("fonts/LeckerliOne-Regular-webfont.eot?#iefix") format('embedded-opentype'),url("fonts/LeckerliOne-Regular-webfont.woff") format('woff'),url("fonts/LeckerliOne-Regular-webfont.ttf") format('truetype'),url("fonts/LeckerliOne-Regular-webfont.svg#LeckerliOneRegular") format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'icomoon';src:url("fonts/icomoon.eot");src:url("fonts/icomoon.eot?#iefix") format('embedded-opentype'),url("fonts/icomoon.woff") format('woff'),url("fonts/icomoon.ttf") format('truetype'),url("fonts/icomoon.svg#icomoon") format('svg');font-weight:normal;font-style:normal}
+[data-icon]:before{font-family:'icomoon';content:attr(data-icon);speak:none;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased}
+.icon-home,.icon-info,.icon-github,.icon-zoom-in,.icon-thumbs-up,.icon-thumbs-up-2{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased}
+.icon-home:before{content:"\e000"}
+.icon-info:before{content:"\e001"}
+.icon-github:before{content:"\e002"}
+.icon-zoom-in:before{content:"\e003"}
+.icon-thumbs-up:before{content:"\e004"}
+.icon-thumbs-up-2:before{content:"\e005"}
+body{background-color:#efefef;font-size:16px;min-width:320px;text-align:center;}
+body section{position:relative;top:7em;}
+body section article{border:5px solid #fff;box-shadow:0 0 5px #888;display:inline-block;vertical-align:top;margin-bottom:1em;position:relative;width:90%;}
+body section article figure{cursor:pointer}
+body section article .text{background:rgba(0,0,0,0.6);bottom:0;color:#fff;font-family:'open_sansregular';margin-bottom:0;position:absolute;width:100%;}
+body section article .text h3{margin-left:.5em;padding-top:.1em;text-align:left}
+body section article .text .author{text-align:right;margin-right:.4em;margin-bottom:.2em;margin-top:.2em}
+body section article .up,body section article .down{color:#fff;cursor:pointer;display:block;margin-top:.5em;margin-bottom:.5em}
+body section article .points{color:#fff;display:block;font-weight:bold}
+body section article .votes{background:rgba(0,0,0,0.7);-webkit-border-radius:0 0 0 5px;-moz-border-radius:0 0 0 5px;border-radius:0 0 0 5px;padding-top:.2em;padding-bottom:.2em;position:absolute;right:0;top:0;width:40px}
+body section article #formulario,body section article .entrada{border:solid .7px #000;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin-top:1em;padding:.5em .5em}
+body section article .entrada:focus{box-shadow:0 0 3px #b50000}
+body section article button{border:solid .7px #b50000;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;margin-top:1em;margin-bottom:1em;padding:.5em .8em}
+body section article button:hover{border:solid .7px #000}
+h1,h2,h3,hgroup,ul,p{padding:0;margin:0}
+img{width:100%}
+header{background-color:#eee;border-bottom:5px solid #000;overflow:hidden;padding:5px 0;position:fixed;width:100%;min-width:320px;text-align:center;z-index:2;}
+header #logo,header #titulo,header #user{display:inline-block;vertical-align:middle}
+header #logo,header #user{height:50px;width:50px}
+header #logo{float:left;margin-left:10px}
+header #main_nav{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background-color:#ddd;padding:1em;}
+header #main_nav a{background-color:#fff;border:solid #000 3px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;color:#000;padding:5px 5px;text-decoration:none;transition:all ease .1s}
+header #main_nav a:hover{border:solid 5px #b50000;color:#b50000}
+header #main_nav h1{margin-bottom:10px}
+header #main_nav li{display:block;list-style:none}
+header #main_nav .menu_items{display:none;margin-top:2em;}
+header #main_nav .menu_items li{margin-top:1.5em}
+header #user{float:right;box-shadow:0 0 10px #888;border:solid #fff 5px;margin-right:10px}
+header #titulo{width:50%;}
+header #titulo h1{color:#b50000;font-family:'LeckerliOneRegular'}
+.formulario{width:300px}
+@media screen and (min-width:768px){body section article{margin:1em 1em;width:40%}
+header #main_nav{padding:0;}
+header #main_nav #menu_buttom{display:none}
+header #main_nav ul.menu_items{display:block;margin-top:0;}
+header #main_nav ul.menu_items li{display:inline-block;margin-bottom:1em;margin-top:1em}
+}@media screen and (min-width:1280px){body section article{margin:.5em .5em;width:30%}
+header #titulo{width:450px}
+}

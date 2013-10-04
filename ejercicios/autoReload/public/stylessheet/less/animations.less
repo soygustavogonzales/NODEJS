@@ -1,0 +1,52 @@
+.animation(@name,@duration:3s,@iteration:infinite,@direction:alternate){
+	-moz-animation-name:@name;
+	-moz-animation-duration:@duration;
+	-moz-animation-iteration-count:@iteration;
+	-moz-animation-direction:@direction;
+	-webkit-animation-name:@name;
+	-webkit-animation-duration:@duration;
+	-webkit-animation-iteration-count:@iteration;
+	-webkit-animation-direction:@direction;
+	animation-name:@name;
+	animation-duration:@duration;
+	animation-iteration-count:@iteration;
+	animation-direction:@direction;
+}
+	.rotate(@degree){
+	-webkit-transform:rotate(@degree);
+	-moz-transform:rotate(@degree);
+	-o-transform:rotate(@degree);
+	transform:rotate(@degree);
+	}
+	.scale(@scaleX,@scaleY){
+	-webkit-transform:scale(@scaleX,@scaleY);
+	-moz-transform:scale(@scaleX,@scaleY);
+	-o-transform:scale(@scaleX,@scaleY);
+	transform:scale(@scaleX,@scaleY);
+	}
+	.translate(@scrollX,@SscrollY){
+	-webkit-transform:translate(@scrollX,@SscrollY);
+	-moz-transform:translate(@scrollX,@SscrollY);
+	-o-transform:translate(@scrollX,@SscrollY);
+	transform:translate(@scrollX,@SscrollY);
+	}
+	.skew(@degreeX,@degreeY){
+	-webkit-transform:skew(@degreeX,@degreeY);
+	-moz-transform:skew(@degreeX,@degreeY);
+	-o-transform:skew(@degreeX,@degreeY);
+	transform:skew(@degreeX,@degreeY);
+	}
+.transform(@type,@valor1) when (@type=rotate){
+	.rotate(@valor);
+}.transform(@type,@valor1,@valor2) when (@type=scale){
+	.scale(@valor1,@valor2);
+}.transform(@type,@valor1,@valor2) when (@type=translate){
+	.translate(@valor1,@valor2);
+}.transform(@type,@valor1,@valor2) when (@type=skew){
+	.skew(@valor1,@valor2);
+}
+.tamano(@xy:100px){
+	width: @xy;
+	height: @xy;
+}
+
