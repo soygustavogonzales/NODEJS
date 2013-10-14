@@ -11,8 +11,8 @@
 					};
 				return 'sumar';//default
 		};
-		//window.rpta = rpta;
-		btn.on('click',function(){
+		window.rpta = rpta;
+	btn.on('click',function(){
 		var oper = $('input[type=radio]');
 					//console.log(rpta)
 		var obj = {
@@ -25,14 +25,15 @@
 		$.ajax({
 			url:'/calcular'
 			,type:'POST'
-			//,dataType:'json'
+			,dataType:'json'
 			, data: obj//envio un json parseado como cadena
 			,success:function(data){
 				console.log(data);
+				console.log(typeof(data));
 				rpta.text(data)//muestro la rpta en el <label>
 				//console.log("on sucess");
 			}
 		});//end ajax
-		
+
 	})
 }(jQuery,window,undefined);

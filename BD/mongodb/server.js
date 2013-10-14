@@ -72,7 +72,10 @@ var Employees = mongoose.model('Employees', EmployeesSchema);
 	}
 		
 	var mostrarDoc = function(){
-		Employees.findOne({_id:'52507b66ace953b411000001'},'name',function(err,doc){
+		Employees.findOne(
+			{_id:'52507b66ace953b411000001'}
+			,'name'//atributo que solo queremos ver, se deja en blanco si queremos todos los atributos
+			,function(err,doc){
 			/*FindOne() solo obtiene un documento asi existan varios semejantes
 				Es mas util y aprpiado usarlo para busquedas con _id
 				el 2do parametro indica que campos/atributos queremos ver de los devueltos
@@ -90,19 +93,84 @@ var Employees = mongoose.model('Employees', EmployeesSchema);
 	
 	var actualizar = function(){
 		Employees.update(
-			{name:'Erick'},
-			{multi:true},
-			{$set:
-				{"lastname":"Davalos"}},
-			function(err,doc){
-				if(!err){
-					l("documento actualizado")
-					l(doc)
+			{name:'Erick'}//condicion, busqueda
+			,{$set://setear
+			{"lastname":"Avalos"
+			,"age":30
+			}
+			}
+			,{multi:true}//para modificar a todos los campos donde se encontro coincidencia.Sino solo modificara al primero que encuentre y a los demas no.
+			,function(error,doc){
+				if(!error){//si no hay error
+					l("documentos actualizados: "+doc)
 				}else{
-					l("OOps ocurrio un error: "+err)
+					l("OOps ocurrio un error: "+error)
 				}
 					
 		})
 	}
 
-	actualizar();
+
+	//actualizar();
+
+	/*Insertar varios documentos*/
+
+	var employeed_lote = [
+	{
+		name:'Marcela'
+		,lastname:'Santander'
+		,age:32
+		,date_born:'05/08/1986'
+		,date_inscription:(new Date)
+		,wage:480.78
+		,sex:'M'
+		,country:'Peru'
+		,characteristic: ['elfo','menudo','inteligente','egocentrico','programador']
+	},
+	{
+		name:'Melinda'
+		,lastname:'Torres'
+		,date_born:'04/09/1980'
+		,date_inscription:(new Date)
+		,wage:4809.78
+		,sex:'F'
+		,country:'Brasil'
+		,characteristic: ['Hermosa','inteligente']
+	}
+	];
+	/*
+	
+	{
+		name:'Victoria'
+		,lastname:'Secret'
+		,age:'24'
+		,date_born:'14/10/1984'
+		,date_inscription:(new Date)
+		,wage:14000.78
+		,sex:'F'
+		,country:'Argentina'
+		,characteristic: ['hermosa','inteligente','adicta','egocentrico','estudiante']
+	},
+	{
+		name:'Marcela'
+		,lastname:'Aranda'
+		,age:'23'
+		,date_born:'14/10/1990'
+		,date_inscription:(new Date)
+		,wage:1400.78
+		,sex:'F'
+		,country:'Argentina'
+		,characteristic: ['hermosa','inteligente','adicta','egocentrico','estudiante']
+	}
+	*/
+
+	Employees.create(employeed_lote,function(error,o1,o2){
+		if(!error){
+			l("Oops un error al crear por lote: "+error);
+		}
+		else{
+			l("Creacion en lote correcta!!");
+			l(o1)
+			l(o2)
+		}
+	})
