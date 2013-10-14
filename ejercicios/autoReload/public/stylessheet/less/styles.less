@@ -1,8 +1,15 @@
-@import "animations.less";
+@import "mixins_of_less.less";
+
 @color: rgba(252,114,114,.9);
 body{
 	background: @color;
+
 }
 section{
-	.tamano(50px);
+	width:300px;
+	.transition(2s);
 }
+section:hover{
+	.scale(.2,0.5);
+};
+

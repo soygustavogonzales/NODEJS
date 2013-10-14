@@ -10,19 +10,20 @@ var server = http.createServer(app).listen(PORT,function(){
 
 app.configure(function(){
 	app.use(express.static("public"));
+	app.use(express.bodyParser())
 });
 app.get('/',function(req,res){
 	res.render('index.jade');
 
 });
 
-app.post('/calcular',function(req,res){
+app.post('/calcular', function(req,res){
 
-	//console.log(req);
-	var operacion = "sumar";//recoger la operacion;
+	var data = req.body
+	var operacion = data.oper;//recoger la operacion;
 	var rpta = operaciones({
-		 a:5//recoger 1er numero
-		,b:8//recoger 2do numero
+		 a: Number(data.c1)//recoger 1er numero
+		,b: Number(data.c2)//recoger 2do numero
 	})[operacion]().toString();
 	/*
 	Sucede que envia la rpta en blanco cuando lo 

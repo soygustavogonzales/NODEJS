@@ -1,12 +1,11 @@
-;!function(window,undefined,io){
-	socket = io.connect('/');
-		function recargar(){
-			window.location.reload();
-		}
+;!function(window,undefined){
 
-	socket.on('connect',function(){
-		socket.on('reload',recargar);
-	});
+		socket = io.connect('/');
+			function recargar(){
+				window.location.reload();
+			}
 
-		
-}(window,undefined,io);
+			socket.on('connect',function(){
+				socket.on('reload',recargar);
+			});
+}(window,undefined);

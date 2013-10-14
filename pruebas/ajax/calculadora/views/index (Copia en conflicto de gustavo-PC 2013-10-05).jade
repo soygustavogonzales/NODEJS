@@ -1,0 +1,71 @@
+doctype 5
+html(lang="es-PE")
+		head
+			meta(charset="utf-8")
+			title Inicio
+			link(rel="stylesheet",href="bootstrap/css/bootstrap.min.css")
+			link(rel="stylesheet",href="bootstrap/css/bootstrap-responsive.min.css")
+			style
+				legend{
+				text-align:center;
+				}
+				div.calc{
+					max-width:350px;
+					background:#F7F7F4;
+					border:.3em solid #E6E7E2;
+					border-radius:.8em;
+					padding:.6em;
+				}
+				input[type="number"]{
+					margin:10px auto;
+					display:block;
+				}
+				input[type="radio"]{
+					margin:0 10px 0 5px;
+				}
+				label{
+					display:inline-block
+				}
+				.btn{
+					display:block;
+				}
+				span.title{
+					display:block
+				}
+				#rpta{
+				display:block;
+				background:#CCCEC6;
+				padding:5px;
+				}
+				.operaciones{
+					margin:0 auto;
+					text-align:center;
+				}
+		body
+			div.container.calc
+				fiedset
+					legend|Calculadora...
+					form(method="POST",action="/calcular")
+						input#c1(type="number",name="cant1",autofocus,placeholder="#1")
+						input#c2(type="number",name="cant2",placeholder="#2")
+						div.container.operaciones.row-fluid
+							label
+								span|sumar
+								input(type="radio",name="operador",value="sumar")
+							label
+								span|restar
+								input(type="radio",name="operador",value="restar")
+							label
+								span|multiplicar
+								input(type="radio",name="operador",value="multiplicar")
+							label
+								span|dividir
+								input(type="radio",name="operador",value="dividir")
+						label#rpta(name="rpta")|rpta
+						label.btn|CALCULAR
+
+			script(src="jquery-1.9.1.min.js")
+			script(src="script.js")
+
+
+

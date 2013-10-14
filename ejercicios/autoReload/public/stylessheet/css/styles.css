@@ -1,0 +1,24 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com.
+    Modificated by Gustavo Gonzales on January 2013.
+  ---------------------------------------------------*/
+body {
+  background: rgba(252, 114, 114, 0.9);
+}
+section {
+  width: 300px;
+  -webkit-transition: all 2s ease-out;
+  -moz-transition: all 2s ease-out;
+  -o-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+section:hover {
+  -webkit-transform: scale(0.2, 0.5);
+  -moz-transform: scale(0.2, 0.5);
+  -o-transform: scale(0.2, 0.5);
+  -ms-transform: scale(0.2, 0.5);
+  transform: scale(0.2, 0.5);
+}

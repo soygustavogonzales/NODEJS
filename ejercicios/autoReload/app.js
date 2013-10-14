@@ -7,34 +7,37 @@
 	var http = require('http'),
     express = require('express'),
     fs = require('fs'),
-	less = require('less'),
+		less = require('less'),
     path = require('path'),
     toCss = require('./serverLess.js'),
-    app = express(),
+   	app = express(),
     PORT =8080,
     server = http.createServer(app);
     io = require('socket.io').listen(server);
+    var l = console.log;
    	server.listen(PORT,function(){
-    	console.log("server runing.in.."+PORT);
+    	l("server runing in PORT: "+PORT);
     });
     io.set('log level',1);
-    console.log(toCss.toCss);
+    //l(toCss.toCss);//arroja [Function]
 
     app.configure(function(){
     	app.set('view options',{//NO usamos loyouts, aun no se que rayos significa, creo q son plantillas
     		layout:false
     	})
-    	app.use(express.static('public'));
+    	//l(__dirname);//nos arroja la ruta del directorio donde se encuentra el app.js
+    	app.use(express.static( __dirname + '/public'));//Establezco mi carpeta para los arichivos estaticos < igual a> app.use(express.static('./public'));
+    	
+
     	//app.use(app.router);
     });
-	var pathFileLess = './public/stylessheet/less/styles.less';
 	var pathFileCss = null;
  
 	var wathFiles =
 	[
-		pathFileCss
+		'./public/stylessheet/less/styles.less'
 		,'./public/js/myscript.js'//un script en el frontend
-		,'./app.js'//el servidor
+		,'./app.js'//el servidor...
 		,'./views/index.jade'//el index(obvio)
 	]
     app.get('/',function(req,res){
@@ -44,36 +47,69 @@
     	});
     });
 
-    
-	  io.sockets.on('connection',function(socket){
-	  	//vigilando el archivo LESS
-	    fs.watchFile(pathFileLess,function(ahora,antes){
-	    	pathFileCss = toCss.toCss(pathFileLess,{
-					    		less:less
-					    		,path:path
-					    		,fs:fs
-					    });
-	    	reloaded();
-	    	//console.log("css file :"+pathFileCss);
-	    })
-	    //vigilando resto de archivos
-		var triggerReload = function(wathFiles,method){
-			for (var i = wathFiles.length - 1; i >= 0; i--) {
-				    fs.watchFile(wathFiles[i],function(ahora,antes){
-	    				reloaded();
-	    				console.log("archivo modificado");
-	    			})
-			};
-		}
-		triggerReload(wathFiles);
+    var conectados = 0;
+	  io.sockets.on('connection',function(socket){//cada vez que se conecta un socket
+		  conectados++;
 
-		//metodo que envia el reload
-		var reloaded = function(){
-		  		console.log("Recargar pagina");
-		  		io.sockets.emit('reload');
-		}
+		 	//io.sockets.setMaxListeners(0)
+		 	l("io.sockets: ")
+		 	//l(io.sockets.setMaxListeners)//arroja [Function]
+		 	l("Nuevo cliente conectado: "+conectados + ", en total");
+		 //vigilando el archivo LESS
+		 //vigilando resto de archivos
+			var triggerWatchs = function(filePath,precompiler){
+				/*
+				filePath:la ruta al archivo
+				precompiler: si es necesario preprocesar
+				*/
+				fs.watchFile(filePath
+					,function(current,before){
+						l("precompiler: "+precompiler);
+						if(precompiler){
+							switch(precompiler){
+								case 'less':
+										pathFileCss = toCss.toCss(filePath,{
+											 	less:less
+											 ,path:path
+											 ,fs:fs
+								    });
+								    l("archivo less modificado")
+								break;
+								case 'stylus':
+								//preciompilate by stylus code.
+								break;
+							}
 
-	  })
+						}else{
+							
+			    		l("archivo !.less modificado: .");
+						}
+							reloaded();
+				});
+			}
+			var triggerReload = function(wathFiles,method){
+				for (var i = 0,longi = wathFiles.length; i < longi; i++) {
+					l("i: "+i)
+							var filePath =  wathFiles[i];//ruta del archivo actual
+							var file = filePath.substring(filePath.lastIndexOf('/')+1,filePath.length);//el nombre dle archivo incluida extension
+					l("file: "+file)
+							var extension = file.substring(file.lastIndexOf('.')+1,file.length);//extension
+						  	if(extension == 'less'){//si es un archivo .less, lo preprocesamos (compilamos)
+						  		triggerWatchs(filePath,'less');
+						  	}else{
+						  		triggerWatchs(filePath);
+						  	}
+				};
+				
+			}//end triggerReload;
+			triggerReload(wathFiles);
+			//metodo que envia el reload
+			var reloaded = function(){
+			  		l("Recargando pagina...");
+			  		io.sockets.emit('reload');
+			}
+
+	  });//end socket.io connection
 
   		
 
