@@ -1,1 +1,0 @@
-alert("funciona el script externo");
