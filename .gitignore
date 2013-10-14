@@ -8,4 +8,4 @@
 #archivos tipo backup, recuperados de algun commit en especial.
 *.bak
 #los modulos de node(carpeta), que cargan mucho a todas las confirmaciones q le hago a git, en cada proyecto usar el package.json para soluconar el problema, dentro de el, describir que modulos se estan usando del npm
-node_modules/
+#node_modules/
