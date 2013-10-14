@@ -4,6 +4,8 @@
 	archivo que sea relevante para la index, este se refreze sin necesidad de hacer [f5]
 	o dandole reload manualmente, todo se hace desde el servidor
 */
+//!function(){
+
 	var http = require('http'),
     express = require('express'),
     fs = require('fs'),
@@ -113,4 +115,5 @@
 
   		
 
+//}()
 

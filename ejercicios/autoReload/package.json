@@ -1,0 +1,15 @@
+{
+  "name": "autoReload",
+  "version": "0.0.1",
+  "description": "Sistema para actualizar una pagina, cada vez que se cambia un arhcivo del desarrollo de dicha pagina.Semejante a LiveReload",
+  //"main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": "",
+  "author": "Gustavo Gonzales",
+  "license": "BSD",
+  "dependencies": {
+    "express": "3.4.0"
+  }
+}
