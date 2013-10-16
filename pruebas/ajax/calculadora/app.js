@@ -25,6 +25,15 @@ app.post('/calcular',function(req,res){
 		 a:Number(data.c1)//recoger 1er numero
 		,b:Number(data.c2)//recoger 2do numero
 	})[operacion]().toString();
+
+	/*Lo anterior seria lo mismo que lo siguiente
+	var o = operaciones({
+		 a:Number(data.c1)//recoger 1er numero
+		,b:Number(data.c2)//recoger 2do numero
+	});
+	var rpta = o[operacion]().toString();
+
+	*/
 	/*
 	Sucede que envia la rpta en blanco cuando lo 
 	dejo solo como entero, por tanto , debo concatenarlo

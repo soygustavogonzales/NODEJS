@@ -10,15 +10,15 @@ body {
 }
 section {
   width: 300px;
-  -webkit-transition: all 2s ease-out;
-  -moz-transition: all 2s ease-out;
-  -o-transition: all 2s ease-out;
-  transition: all 2s ease-out;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  transition: all 1s ease-in;
 }
 section:hover {
-  -webkit-transform: scale(0.2, 0.5);
-  -moz-transform: scale(0.2, 0.5);
-  -o-transform: scale(0.2, 0.5);
-  -ms-transform: scale(0.2, 0.5);
-  transform: scale(0.2, 0.5);
+  -webkit-transform: scale(1.5, 1.5);
+  -moz-transform: scale(1.5, 1.5);
+  -o-transform: scale(1.5, 1.5);
+  -ms-transform: scale(1.5, 1.5);
+  transform: scale(1.5, 1.5);
 }

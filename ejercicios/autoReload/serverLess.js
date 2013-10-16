@@ -64,7 +64,7 @@ var toCss = function (pathLess,modules){
 
     return (cssFile);
 }//end toCss() method
-module.exports.toCss = toCss; 
+module.exports = toCss; 
 
 /*
 var toLess = function(path){
