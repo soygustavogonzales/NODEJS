@@ -1,0 +1,30 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body{
+	background: #200D0D;
+	color: white;
+	font-size: 18;
+	font-variant: Verdana,sans-serif,arial;
+}
+#web{
+	margin: 0 auto;
+}
+form{
+	padding: 10px;
+}
+
+select, input:not([type=checkbox]), .listcheck{
+	display: block;
+	margin: 8px;
+}
+input{
+	height: 30px;
+}
+.listcheck>input[type="checkbox"],input[type="radio"]{
+	display: inline-block;
+	vertical-align: middle;
+}

@@ -1,0 +1,37 @@
+!!!5
+html(lang="en-UE")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1 user-scalable=no")
+		title|MI index
+		link(rel="stylesheet",type="text/css",href="style.css")
+
+	body
+		header
+		div#web
+		|Bienvenido al index
+		form(id="form", method="GET", action="/product")
+			input(type="text",name="producto",placeholder="produto")
+			input(type="text",name="color",placeholder="color")
+			input(type="text",name="tipo",placeholder="tipo")
+			select(name="multiple",multiple="multiple")
+				option(selected="selected")|opcion1
+				option()|opcion2
+				option(selected="selected")|opcion3
+			div.listcheck
+				|check1
+				input(type="checkbox",name="check",value="check1")
+				|check2
+				input(type="checkbox",name="check",value="check2")
+				|check3
+				input(type="checkbox",name="check",value="check3")
+			|radio1
+			input(type="radio",name="radio",value="radio1")
+			|radio2
+			input(type="radio",name="radio",value="radio1")
+			|radio3
+			input(type="radio",name="radio",value="radio3")
+			input(type="submit",value="ENVIAR PEDIDO")
+		script(type="text/javascript", src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js")
+		script(type="text/javascript", src="script.js")
+		footer

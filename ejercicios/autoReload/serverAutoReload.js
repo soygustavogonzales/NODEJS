@@ -70,7 +70,7 @@ function autoReload(ops) {
 		  		layout:false
 		  	})
 		  	self.statics.app.use(self.modules.express.static( __dirname + '/' + self.parameters.publicDirectory));//Establezco mi carpeta para los arichivos estaticos < igual a> app.use(express.static('./public'));
-	  	});
+	  		});
 
 		}
 		,routes : function(){
