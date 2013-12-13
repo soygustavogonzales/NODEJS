@@ -1,0 +1,15 @@
+extends layout-1
+block body
+	div#web
+		div.sup-content
+			div#chatbox(ng-controller="ListMessage")
+				div#messages(class="scrollable")
+					ul
+						li(ng-repeat="msj in messages",class="buble")
+							span 
+				div(class="row")
+					div.col-xs-12
+						div.input-group
+							span.input-group-addon
+								span(class="glyphicon glyphicon-calendar")
+							input(ng-model="new_message", ng-keyup="enviarMensaje($event)" ,class="form-control",id="chat-input", type="text")

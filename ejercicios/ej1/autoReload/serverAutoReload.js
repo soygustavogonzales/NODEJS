@@ -66,7 +66,7 @@ function autoReload(ops) {
 			var self = this;
 		  this.statics.app.configure(function(){
 		  	//l(self)
-		  	self.statics.app.set('view options',{//NO usamos loyouts, aunque ya no es necesario en versiones nuevas de express
+		  	self.statics.app.set('view options',{//NO usamos loyouts, aun no se que rayos significa, creo q son plantillas
 		  		layout:false
 		  	})
 		  	self.statics.app.use(self.modules.express.static( __dirname + '/' + self.parameters.publicDirectory));//Establezco mi carpeta para los arichivos estaticos < igual a> app.use(express.static('./public'));

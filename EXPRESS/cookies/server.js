@@ -6,18 +6,23 @@ var app = express();
 
 app.configure(function(){
 	app.set("port", process.env.PORT || PORT);
-	app.set("views","/views");
+	app.set("views",__dirname+"/views");
 	app.set("view engine","jade");
 
 	app.use(express.cookieParser());
 	app.use(app.router);
-	app.use(express.static("/public"));
+	app.use(express.static("public"));
 
 });
+app.get('/',function(req,res){
+	res.sendfile(__dirname+"/views/"+"index.html");
+})
 app.get('/name',function(req,res){
 	res.send('<h1>'+req.cookies.name+'</h1>'+'<a href="/delete">borrar cookie</a>');
 });
 app.get('/name/:name',function(req,res){
+	var name = req.params.name;
+	console.log(name);
 	res.cookie('name',req.params.name).send('<p>To see cookie in action, <a href="/name">GO TO <a/></p>')
 });
 app.get('/delete',function(req,res){

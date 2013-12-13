@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" class="username" placeholder="username">
+	<button id="btn">enviar</button>
+	<script>
+	var btn = document.getElementById("btn");
+	btn.onclick = function(e){	
+		var un = document.getElementsByClassName("username")[0].value;
+		location.assign("/name/"+un);
+	}
+		
+	</script>
+</body>
+</html>

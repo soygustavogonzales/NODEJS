@@ -21,8 +21,8 @@ var toCss = function (pathLess,modules){
                        })(files_less[0])//"../autoReload/public/stylessheet/css"
         ,optimization :1
         ,filename     :files_less[0].substring(files_less[0].lastIndexOf("/")+1,files_less[0].length)
-        ,compress     :true
-        ,yuicompress  :true
+        ,compress     :false
+        ,yuicompress  :false
 
       };
 

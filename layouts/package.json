@@ -1,0 +1,19 @@
+{
+  "name": "layouts",
+  "version": "0.0.1",
+  "description": "layouts with jade",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies":{
+    "express":"3.4.0",
+    "jade":"0.35.0"
+    },
+  "keywords": [
+    "layouts"
+  ],
+  "author": "Gustavo Gonzales",
+  "license": "BSD-2-Clause"
+}

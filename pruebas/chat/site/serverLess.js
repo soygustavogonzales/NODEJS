@@ -21,8 +21,8 @@ var toCss = function (pathLess,modules){
                        })(files_less[0])//"../autoReload/public/stylessheet/css"
         ,optimization :1
         ,filename     :files_less[0].substring(files_less[0].lastIndexOf("/")+1,files_less[0].length)
-        ,compress     :true
-        ,yuicompress  :true
+        ,compress     :false//para comprimir el archivo css final
+        ,yuicompress  :false//para comprimir mas eficientemente el css final
 
       };
 
@@ -50,9 +50,11 @@ var toCss = function (pathLess,modules){
         // Write output
     //console.log(options.filename);
         fs.writeFileSync( options.outputDir + options.outputfile, cssString, 'utf8' );
-        console.log("Converted Less: '" + options.filename + "', to CSS: " + options.outputDir + options.outputfile);
+        //console.log("Converted Less: '" + options.filename + "', to CSS: " + options.outputDir + options.outputfile);
         cssFile = options.outputDir + options.outputfile;
-        console.log('cssFile*: '+cssFile);
+        console.log('//////////////////////////////////////////////////////////');
+        console.log('Precompiled Less to Css Successfull!!; cssFile*: '+cssFile);
+        console.log('//////////////////////////////////////////////////////////');
       });
     });
 

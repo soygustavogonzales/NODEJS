@@ -1,0 +1,16 @@
+extends layout
+block body
+	div#web
+		div(class="modal fade",id="myModal",tabindex="-1",role="dialog",aria-labelledby="myModalLabel")
+			div.modal-dialog
+				div.modal-content
+					div.modal-header
+						|Your username?
+					div.modal-body
+						div.row
+							div.col-xs-5(class="center-block")
+								div.input-group
+									span.input-group-addon|@
+									input(type="text",class="form-control",placeholder="username")
+					div.modal-footer
+						button(type="button",class="btn btn-default")|Entrar

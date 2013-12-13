@@ -1,0 +1,104 @@
+@import "../bootstrap/less/bootstrap.less";
+@import "mixins_of_less.less";
+
+@color-1:#D4D4D4;//gris claro
+@color-2:#6EE63A;//verde fosforecente claro
+@color-3:#F2F1F0;//gris claro
+//bubles
+@color-4:#FDB0BF;
+
+@angle:5px;
+@ancho-chat:250px;
+*{
+	box-sizing:border-box;
+	word-break:break-word;
+}
+body{
+	background: @color-3;
+}
+	#web{
+		width: 100%;
+		background: lighten(@color-3,1%);
+		height: 600px;
+		.sup-content{
+			width: 70%;
+			height: auto;
+			margin: 0 auto;
+			background: lighten(@color-1, 10%);
+			#chatbox{
+				width: @ancho-chat;
+				height: auto;
+				margin: 0 auto;
+				border:1px solid darken(@color-3,20%);
+				.rounded(@angle + 2);
+				#messages{
+					.border-radius(@angle,0,0,@angle);
+					height: 300px;
+					width: @ancho-chat;
+					overflow-y: scroll;
+					padding: 5px;
+					background: darken(@color-3, 10%);
+					.drop-shadow-inset(inset,1px,1px,15px,0.2em);
+
+					ul{
+						.buble{
+								.rounded(@angle);
+								background: lighten(#72a9de, 10%);
+								.drop-shadow(2px,3px,10px,0.1em);
+								list-style-type: none;
+								padding: 5px;
+								margin: 9px 5px 12px -30px;
+								display: table;//para q no se junten los mensajes uno al lado de otro(horizontal)
+								&::after{
+									content: "";
+									width: 15px;
+									height: 10px;
+									background: transparent;
+									border-top: 10px solid lighten(#72a9de, 10%);
+									border-left: 4px solid transparent;
+									border-right: 11px solid transparent;
+									position: relative;
+									top: 30px;
+									left:3%;
+								}
+						}//.buble
+
+						.buble-response{
+								.rounded(@angle);
+								background: lighten(@color-4, 1%);
+								.drop-shadow(2px,3px,10px,0.1em);
+								list-style-type: none;
+								padding: 5px;
+								margin: 9px 5px 12px -30px;
+								display: table;//para q no se junten los mensajes uno al lado de otro(horizontal)
+								&::after{
+									content: "";
+									width: 15px;
+									height: 10px;
+									background: transparent;
+									border-top: 10px solid lighten(@color-4, 1%);
+									border-left: 4px solid transparent;
+									border-right: 11px solid transparent;
+									position: relative;
+									top: 30px;
+									left:3%;
+								}
+						}//.buble
+					}//ul
+				}//#messages
+				.row{
+					.input-group-addon{
+						.border-radius(0,0,@angle,0);
+						
+					}
+					#chat-input{
+						.border-radius(0,@angle,0,0);
+						
+					}
+					&:hover span.glyphicon-comment{
+						zoom:1.2;
+					}
+				}//.row
+			}//#chatbox
+		}//.sup-content
+	}//#web

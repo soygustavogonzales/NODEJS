@@ -1,0 +1,26 @@
+!!! 5
+html(ng-app,lang="es-PE")
+	head
+		meta(charset="utf-8")
+		title Inicio
+		link(rel="stylesheet",href="css/styles.css")
+	body
+		div(id="web",ng-controller="ListMessage")
+			span
+			div.sup-content
+				div(id="chatbox")
+					div(id="messages",class="scrollable")
+						ul
+							li(ng-repeat="msj in messages",class="buble-response")
+								span= username
+									span|:{{msj.message}}
+					div(class="row")
+						div.col-xs-12
+							div(class="input-group")
+								span.input-group-addon
+									span(class="glyphicon glyphicon-comment")
+								input(ng-model="new_message", ng-keyup="sendMessage($event)",placeholder="mensaje" ,class="form-control",id="chat-input", type="text")
+		script(src="js/jquery-2.0.3.min.js")
+		script(src="bootstrap/js/bootstrap.min.js")
+		script(src="js/angular.min.js")
+		script(src="js/script.js")
