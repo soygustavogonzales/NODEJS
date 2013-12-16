@@ -1,26 +1,48 @@
 !!! 5
-html(ng-app,lang="es-PE")
+html(ng-app="myChatApp",lang="es-PE")
 	head
 		meta(charset="utf-8")
 		title Inicio
-		link(rel="stylesheet",href="css/styles.css")
+		link(rel="stylesheet",href="/css/styles.css")
 	body
-		div(id="web",ng-controller="ListMessage")
-			span
+		div(id="web")
 			div.sup-content
-				div(id="chatbox")
+				div(id="chatbox",ng-controller="ListMessageCtrl")
 					div(id="messages",class="scrollable")
 						ul
-							li(ng-repeat="msj in messages",class="buble-response")
-								span= username
-									span|:{{msj.message}}
+							li(ng-repeat="msj in messages",class="buble")
+								span
+									{{msj.remitente}} : {{msj.message}}
 					div(class="row")
 						div.col-xs-12
 							div(class="input-group")
 								span.input-group-addon
 									span(class="glyphicon glyphicon-comment")
-								input(ng-model="new_message", ng-keyup="sendMessage($event)",placeholder="mensaje" ,class="form-control",id="chat-input", type="text")
-		script(src="js/jquery-2.0.3.min.js")
-		script(src="bootstrap/js/bootstrap.min.js")
-		script(src="js/angular.min.js")
-		script(src="js/script.js")
+								input(ng-model="new_message", ng-keyup="sendMessage($event)",ng-keypress="",placeholder="mensaje" ,class="form-control",id="chat-input", type="text")
+				div.panel-users(ng-controller="ListUsersCtrl")
+					div.col-md-4
+						div(class="panel panel-defaul")
+							div.panel-heading
+								div.row
+									div.col-xs-4
+										span|Users
+									div.col-xs-8
+										div.input-group
+											div.input-group-addon
+												i(class="fa fa")
+											input.form-control(type="text",ng-model="search",placeholder="search math name")
+							div.panel-body
+								ul.list-group(class="listUsers",ng-keypress="add()")
+									li.list-group-item(ng-repeat="user in users| filter:search")
+										{{user}}
+							div.panel-footer
+								|The footer
+				div.buttons
+					button.btnShowMyId(type="button")|Show my _ID				
+
+		script(src="/js/jquery-2.0.3.min.js")
+		script(src="/bootstrap/js/bootstrap.min.js")
+			//para que funcione socket.io
+		script(type='text/javascript', src='/socket.io/socket.io.js')
+		script(src="/js/angular.min.js")
+		script(src="/js/script.js")
