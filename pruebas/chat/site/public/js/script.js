@@ -35,7 +35,7 @@
 		socket.on('showUsers',function(data){
 			l.log("nueva lista usuarios: ")
 			l.log(data);
-			window.listUsers = data;
+			window.listUsersnames = data.listUsersnames;
 			window.keypear("listUsers");
 		})
 
@@ -43,11 +43,13 @@
 		myChatApp.controller("ListUsersCtrl",function($scope){
 			$scope.users = [];
 			$scope.add = function(){
-				l.log(window.listUsers.listUsers);
-				var list = window.listUsers.listUsers;
-				for (var i = list.length - 1; i >= 0; i--) {
-					$scope.users.push(list[i]);
-				};
+				l.log("estamos en add()");
+				l.log(window.listUsersnames);
+				var list = window.listUsersnames;//array de usernames
+				angular.forEach(list, function(value, key){
+					$scope.users[key] = value
+				});
+				l.log($scope.users)
 			}
 		});
 		myChatApp.controller("ListMessageCtrl",function($scope){

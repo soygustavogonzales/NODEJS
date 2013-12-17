@@ -57,11 +57,18 @@ app.get('/chat',function(req,res){
 
 io.sockets.on('connection',function(socket){
 	l("nueva coneccion...")
+	/*Un nnuevo ususario establece coneccion*/
+	/*
+	socket.emit("new_user",function(){
+
+	});
+	*/
+	/*end of Un nuevo usuario establece coneccion*/
 	socket.on("new_user",function(data){
 		socket.set("username",data.username.toString())
 		l("*New user: "+ data.username);
-		socket.emit("showUsers",{
-			listUsers:getListUsersnames(io.sockets.sockets)
+		io.sockets.emit("showUsers",{
+			listUsersnames:getListUsersnames(io.sockets.sockets)
 		});
 	});
 	socket.on("window.insertarMsj",function(data){
