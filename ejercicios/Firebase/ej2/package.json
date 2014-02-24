@@ -1,0 +1,19 @@
+{
+  "name": "ej2",
+  "version": "0.0.0",
+  "description": "firebase demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "firebase"
+  ],
+  "dependencies":{
+    "firebase":"1.0.2",
+    "jade":"1.1.5"
+  },
+  "author": "gagd",
+  "license": "ISC"
+}

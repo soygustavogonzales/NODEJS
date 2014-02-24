@@ -1,0 +1,56 @@
+extends layout
+block _head
+	script(src="/js/firebase.js")
+	script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+block _body
+	div#web
+		h4|App2 by Firebase 
+			small|list Users
+		filedset
+			div.row(class="well well-lg", id="datos")
+				div.col-xs-8
+					div.input-group
+						span.input-group-addon
+							i(class="glyphicon glyphicon-user")
+						input.form-control(type="text", placeholder="your name", name="name")
+					div.input-group
+						span.input-group-addon
+							i(class="glyphicon glyphicon-user")
+						input.form-control(type="text", placeholder="your lastname", name="lastname",class="lastname")
+					div.input-group
+						span.input-group-addon
+							i(class="glyphicon glyphicon-user")
+						input.form-control(type="number", placeholder="your age", name="age",class="age")
+					input.btn(class="btn-default btn-sm",type="button", name="btnEnviar",value="ENVIAR")
+		div.row
+			div.col-xs-10
+				div.panel(class="panel-default")
+					div.panel-heading
+						|Users active
+					div.panel-body
+						div.col-xs-12
+							ul.list-group
+
+	script
+		var app2 = new Firebase('https://app2.firebaseIO.com'),
+		users = app2.child('users'),
+		l = console,
+		_name = $('input[name="name"]'),
+		lastname = $('input[name="lastname"]'),
+		age = $('input[name="age"]'),
+		btnEnviar = $('input[name="btnEnviar"]'),
+		ul = $('ul.list-group');
+		btnEnviar.on("click",function(e){
+			var person = {
+				name:_name.val(),
+				lastname:lastname.val(),
+				age:age.val()
+			};
+				l.log(person);
+			users.push(person);//inserto un nuevo objeto en la bd de firebase
+		});
+
+		users.on('child_added',function(data){
+			var _name = data.val().name
+			ul.append($('<li class="list-group-item">'+_name+'</li>'))
+		});

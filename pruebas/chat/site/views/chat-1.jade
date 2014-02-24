@@ -2,6 +2,7 @@
 html(ng-app="myChatApp",lang="es-PE")
 	head
 		meta(charset="utf-8")
+			meta(name="viewport",content="width = device-width, initial-scale=1, minimun-scale = 1, maximun-scale=1")
 		title Inicio
 		link(rel="stylesheet",href="/css/styles.css")
 	body
@@ -12,7 +13,7 @@ html(ng-app="myChatApp",lang="es-PE")
 						ul
 							li(ng-repeat="msj in messages",class="buble")
 								span
-									{{msj.remitente}} : {{msj.message}}
+									{{msj.remitente}} : {{msj.message}},{{alert('hola')}}
 					div(class="row")
 						div.col-xs-12
 							div(class="input-group")
@@ -20,7 +21,7 @@ html(ng-app="myChatApp",lang="es-PE")
 									span(class="glyphicon glyphicon-comment")
 								input(ng-model="new_message", ng-keyup="sendMessage($event)",ng-keypress="",placeholder="mensaje" ,class="form-control",id="chat-input", type="text")
 				div.panel-users(ng-controller="ListUsersCtrl")
-					div.col-md-4
+					div.col-md-12
 						div(class="panel panel-defaul")
 							div.panel-heading
 								div.row
@@ -41,6 +42,10 @@ html(ng-app="myChatApp",lang="es-PE")
 					button.btnShowMyId(type="button")|Show my _ID				
 
 		script(src="/js/jquery-2.0.3.min.js")
+		script
+			var an = window.outerWidth;
+			var al = window.outerHeight;
+			alert(an + " : "+al + "\n"+navigator.platform)
 		script(src="/bootstrap/js/bootstrap.min.js")
 			//para que funcione socket.io
 		script(type='text/javascript', src='/socket.io/socket.io.js')

@@ -8,20 +8,22 @@
 @color-4:#FDB0BF;
 
 @angle:5px;
-@ancho-chat:250px;
+@ancho-chat:40%;
+@ancho-panel-users:100% - @ancho-chat;
 *{
 	box-sizing:border-box;
 	word-break:break-word;
 }
 body{
 	background: @color-3;
+	font-size: 16px;
 }
 	#web{
 		width: 100%;
 		background: lighten(@color-3,1%);
 		height: 600px;
 		.sup-content{
-			width: 70%;
+			width: 100%;
 			height: auto;
 			margin: 0 auto;
 			background: lighten(@color-1, 10%);
@@ -30,11 +32,12 @@ body{
 				height: auto;
 				margin: 0 auto;
 				border:1px solid darken(@color-3,20%);
+				float:left;
 				.rounded(@angle + 2);
 				#messages{
 					.border-radius(@angle,0,0,@angle);
 					height: 300px;
-					width: @ancho-chat;
+					width: 100%;
 					overflow-y: scroll;
 					padding: 5px;
 					background: darken(@color-3, 10%);
@@ -58,7 +61,7 @@ body{
 									border-left: 4px solid transparent;
 									border-right: 11px solid transparent;
 									position: relative;
-									top: 30px;
+									top: 1.9em;
 									left:3%;
 								}
 						}//.buble
@@ -100,5 +103,27 @@ body{
 					}
 				}//.row
 			}//#chatbox
+			.panel-users{
+					width: @ancho-panel-users;
+					float: right;
+				}//.panel-users
 		}//.sup-content
 	}//#web
+
+@media only screen and (max-width: 840px) {
+  body {
+
+    font-size: 25px;
+			#web{
+				background: #5757B6;
+			}
+  }
+}
+@media only screen and (max-width: 320px){
+  body {
+
+			#web{
+				background: #FC405E;
+			}
+  }
+}

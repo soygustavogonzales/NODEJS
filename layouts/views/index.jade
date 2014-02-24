@@ -1,7 +1,13 @@
 extends layout
 block content
-	span|hello gustavo gonzales
-	section.comments
-		|Aqui los comentarios
-		block content_
+	div#web
+		span|hello gustavo gonzales
+		section.comments
+			|Aqui los comentarios
+			block content_
+block import_sub
+	script(src="/js/2.js")
+	script(src="/js/3.js")
+	block import_sub2
+
 

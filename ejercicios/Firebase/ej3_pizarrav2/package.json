@@ -1,0 +1,30 @@
+{
+  "name": "ej3_pizarrav2",
+  "version": "1.0.0",
+  "description": "board with angularjs and firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:soygustavogonzales/NODEJS.git"
+  },
+  "dependencies":{
+    "firebase":"1.0.5",
+    "jade":"1.1.5",
+    "express":"3.4.8",
+    "less":"1.6.3"
+  },
+  "keywords": [
+    "firebase",
+    "angularjs",
+    "board"
+  ],
+  "author": "Gustavo Gonzales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soygustavogonzales/NODEJS/issues"
+  },
+  "homepage": "https://github.com/soygustavogonzales/NODEJS"
+}

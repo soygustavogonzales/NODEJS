@@ -6096,6 +6096,7 @@ td.visible-print {
 }
 body {
   background: #f2f1f0;
+  font-size: 16px;
 }
 #web {
   width: 100%;
@@ -6103,16 +6104,17 @@ body {
   height: 600px;
 }
 #web .sup-content {
-  width: 70%;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   background: #eeeeee;
 }
 #web .sup-content #chatbox {
-  width: 250px;
+  width: 40%;
   height: auto;
   margin: 0 auto;
   border: 1px solid #c3beb9;
+  float: left;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
@@ -6134,7 +6136,7 @@ body {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   height: 300px;
-  width: 250px;
+  width: 100%;
   overflow-y: scroll;
   padding: 5px;
   background: #dad8d5;
@@ -6164,7 +6166,7 @@ body {
   border-left: 4px solid transparent;
   border-right: 11px solid transparent;
   position: relative;
-  top: 30px;
+  top: 1.9em;
   left: 3%;
 }
 #web .sup-content #chatbox #messages ul .buble-response {
@@ -6228,4 +6230,21 @@ body {
 }
 #web .sup-content #chatbox .row:hover span.glyphicon-comment {
   zoom: 1.2;
+}
+#web .sup-content .panel-users {
+  width: 60%;
+  float: right;
+}
+@media only screen and (max-width: 840px) {
+  body {
+    font-size: 25px;
+  }
+  body #web {
+    background: #5757B6;
+  }
+}
+@media only screen and (max-width: 320px) {
+  body #web {
+    background: #FC405E;
+  }
 }

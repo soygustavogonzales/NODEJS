@@ -3,6 +3,7 @@ express = require('express'),
 less = require('less'),
 path = require('path'),
 fs = require('fs'),
+sanitizer = require('sanitizer'),
 toCss = require('./serverLess.js'),
 app = express(),
 l = console.log,
@@ -28,7 +29,7 @@ app.configure(function(){
 	*/
 })
 
-var lessFile = './site/public/less/styles.less';
+var lessFile = __dirname+'/public/less/styles.less';
 fs.watchFile(lessFile,function(after,current){	
 	var cssFile = toCss(lessFile,{
 		less:less,
@@ -43,7 +44,7 @@ app.get('/',function(req,res){
 
 app.get('/chat/:username',function(req,res){
 	//l(__dirname);
-	var username = req.params.username;
+	var username = sanitizer.escape(req.params.username);
 	l(username + " is enter");
 	req.session.username = username;
 	res.render('chat-1.jade',
@@ -90,11 +91,11 @@ io.sockets.on('connection',function(socket){
 		});
 
 	});
-	l("clients...");
-	l(io.sockets.clients());
-	l("****sockets...")
-	l(io.sockets.sockets);
 	/*
+		l("clients...");
+		l(io.sockets.clients());
+		l("****sockets...")
+		l(io.sockets.sockets);
 	*/
 });
 	var getListUsersnames = function(listSockets){

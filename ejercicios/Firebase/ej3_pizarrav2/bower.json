@@ -1,0 +1,25 @@
+{
+  "name": "ej3_pizarrav2",
+  "version": "1.0.0",
+  "homepage": "https://github.com/soygustavogonzales/NODEJS",
+  "description": "board with firebase",
+  "keywords": [
+    "board",
+    "firebase"
+  ],
+  "ignore":[
+    "README.md",
+    "**/*.txt",
+    "**/*.gzip"
+  ],
+  "dependencies": {
+    "jquery": "2.1.0",
+    "flatstrap": "3.0.3",
+    "angular": "1.2.13",
+    "firebase":"1.0.6",
+  },
+  "license": "MIT",
+  "authors": [
+    "Gustavo Gonzales<gustavo.gonda@gmail.com>"
+  ]
+}

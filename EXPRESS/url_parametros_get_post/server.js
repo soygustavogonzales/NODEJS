@@ -5,7 +5,7 @@ var http = require('http'),
 app.configure(function(){
 	app.use(app.router);
 	app.use(express.bodyParser());
-	app.use(express.static(__dirname+'/public'));
+	app.use(express.static('public'));
 	app.set('port',process.env.PORT||8080);
 	app.set('view engine','jade');
 });

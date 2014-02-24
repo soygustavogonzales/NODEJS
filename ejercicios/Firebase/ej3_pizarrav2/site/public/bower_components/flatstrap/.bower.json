@@ -1,0 +1,35 @@
+{
+  "name": "flatstrap",
+  "main": [
+    "./dist/css/bootstrap.css",
+    "./dist/js/bootstrap.js",
+    "./dist/fonts/glyphicons-halflings-regular.eot",
+    "./dist/fonts/glyphicons-halflings-regular.svg",
+    "./dist/fonts/glyphicons-halflings-regular.ttf",
+    "./dist/fonts/glyphicons-halflings-regular.woff"
+  ],
+  "ignore": [
+    "**/.*",
+    "*.html",
+    "_*",
+    "CNAME",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "docs-assets",
+    "examples",
+    "js/tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  },
+  "homepage": "https://github.com/littlesparkvt/flatstrap",
+  "_release": "15ae9c5043",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "15ae9c5043abf66f0026a002a2e5a013a1961863"
+  },
+  "_source": "git://github.com/littlesparkvt/flatstrap.git",
+  "_target": "*",
+  "_originalSource": "flatstrap"
+}

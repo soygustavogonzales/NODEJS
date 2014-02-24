@@ -12,7 +12,7 @@ var http = require('http'),
 					app.use(express.cookieParser());
 					app.use(app.router);
 					app.use(express.static(__dirname +"/public"));
-
+					app.locals.pretty = false;
 				});
 
 				app.get('/',function(req,res){
@@ -21,8 +21,8 @@ var http = require('http'),
 				app.get('/admin/:name',function(req,res){
 					var name = req.params.name;
 					if(name){
-					res.render('admin.jade',
-						{name:name,
+					res.render('admin.jade'
+						,{name:name,
 							lastname:'gonzales',
 						 age:23}
 						);

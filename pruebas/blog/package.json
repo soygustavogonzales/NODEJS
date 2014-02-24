@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "description": "un blog de prueba con angularjs + jquery +nodejs + firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies":{
+    "jade":"1.1.4"
+    ,"firebase":"1.0.2"
+    ,"express":"3.4.8"
+    ,"less":"1.6.1"
+    },
+   "engines": {
+      "node": ">= 0.10.21"
+    },
+  "keywords": [
+    "nodejs",
+    "angularjs",
+    "jquery",
+    "firebase"
+  ],
+  "author": "Gustavo Gonzales",
+  "license": "ISC"
+}
