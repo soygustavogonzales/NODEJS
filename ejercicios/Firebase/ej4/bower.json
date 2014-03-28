@@ -4,18 +4,17 @@
   "homepage": "https://github.com/soygustavogonzales/NODEJS",
   "description": "board with firebase",
   "keywords": [
-    "board",
-    "firebase"
+    "example",
+    "firebase",
+    "angular"
   ],
   "ignore":[
     "README.md"
   ],
   "dependencies": {
-    "jquery": "2.1.0",
-    "flatstrap": "latest",
     "angular": "1.2.13",
     "firebase":"1.0.6",
-    "angularfire":"0.7.1"
+    "angularfire":"latest"
   },
   "license": "MIT",
   "authors": [

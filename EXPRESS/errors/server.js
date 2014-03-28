@@ -9,7 +9,7 @@ var http = require('http')
 		http.createServer(app).listen(PORT);
 	*/
 
-app.configure(function(){
+app.configure(function(){	
 	 //app.set('port',PORT);
 	 app.set(express.static(__dirname + "/public"));
 	 app.set('view engine','jade');

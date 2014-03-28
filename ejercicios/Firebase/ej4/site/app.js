@@ -6,7 +6,7 @@ l = console.log,
 server = http.createServer(app);
 
 app.configure(function(){
-	app.set('port',4530||process.env.PORT)
+	app.set('port',8081||process.env.PORT)
 	//app.set('views','views')
 	app.set('view engine','jade')
 	app.use(app.router);
@@ -32,5 +32,5 @@ app.get('/',function(req,res){
 })
 
 server.listen(app.get('port'),function(){
-	l("Server runing in port: %d "+app.get('port'));
+	l("Server runing in port: %s ",app.get('port'));
 });

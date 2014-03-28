@@ -1,0 +1,18 @@
+{
+  "name": "routers",
+  "version": "0.0.0",
+  "description": "router with express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "routers"
+  ],
+  "dependencies":{
+    "express":"3.4.8"
+    },
+  "author": "Gustavo Gonzales",
+  "license": "ISC"
+}

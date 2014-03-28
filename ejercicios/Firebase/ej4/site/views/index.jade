@@ -1,0 +1,20 @@
+doctype
+html(lang="es-PE",ng-app="myChatRoom")
+	head
+		//link(rel="stylesheet",href="/styles/css/styles.css")
+	body
+		#web(ng-controller="chatCtrl")
+			ul
+				li(ng-repeat="(key,message) in messages_||privates | orderByPriority")
+					span{{message.from}} : {{message.content}}
+			br
+			form(ng-submit="addMessage()",name="myform",novalidate)
+				input(type="text",ng-model="message",name="message",required)
+				input(type="submit",value="Send Message",ng-disabled="myform.$invalid")
+			button(ng-disabled="messages_.length < 1",ng-click="borrarMsjs()")|Borrar Mensajes
+			button(ng-disabled="messages_.length < 1",ng-click="mostrarIndices()")|Mostrar Indices
+
+		script(src="/bower_components/angular/angular.min.js")
+		script(src="/bower_components/firebase/firebase.js")
+		script(src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js")
+		script(src="/js/app1.js")
