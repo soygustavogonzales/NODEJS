@@ -32,5 +32,5 @@ app.get('/',function(req,res){
 })
 
 server.listen(app.get('port'),function(){
-	l("Server runing in port: %d "+app.get('port'));
+	l("Server runing in port: %d ",app.get('port'));
 });
