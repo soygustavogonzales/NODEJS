@@ -33,12 +33,9 @@ myBoard.controller('ctrlBoard', ['$scope','svsBoard', function ($scope,svsBoard)
 		modoBorrador = true;
 		console.log(modoBorrador);
 	});
+
 	btnBorrarTodo.click(function(event) {
 		$scope.coords.$remove();
-		//console.log(canvas);
-		//canvas[0].width = canvas[0].width;
-		//ctx.fillStyle = "green";		
-		//ctx.fillRect(0,0,canvas.width,canvas.height);
 	});
 	canvas.mousedown(function(e) {
 		inicio = true;
@@ -53,18 +50,21 @@ myBoard.controller('ctrlBoard', ['$scope','svsBoard', function ($scope,svsBoard)
 		if(inicio){
 				var x = e.clientX,y=e.clientY;
 				var coord = x+":"+y
-			if(!modoBorrador){
-					$scope.coords.$child(coord).$set(colorBoard);;		
-				}else{
+			if(!modoBorrador){//dibuja
+					$scope.coords.$child(coord).$set(colorBoard);	
+				}else{//borra
 					console.log($scope.coords[coord]);
-					$scope.coords[coord].$remove();
+					$scope.coords.$remove(coord);
 				}
 
 		}
 	});
 	canvas.mouseup(function(e) {
-		inicio = false;
+		
+		var x = e.clientX,y=e.clientY;
 		ctx.closePath()
+		inicio = false;
+		//ctx.moveTo(x,y);
 	});
 
 	$scope.coords.$on('child_removed',function(snapshot){
@@ -72,23 +72,44 @@ myBoard.controller('ctrlBoard', ['$scope','svsBoard', function ($scope,svsBoard)
 		console.log(coords);
 		var x = coords[0];
 		var y = coords[1];
-				ctx.clearRect(x,y,4,4);
-	})
+		angular.forEach([1,2,3,4], function(key,val){
+			//console.log(key+" : "+val);
+				ctx.clearRect(x-key,y-key,key,key);
+				ctx.clearRect(x-key,y,key,key);
+				ctx.clearRect(x,y-key,key,key);
+				ctx.clearRect(x,y,key,key);
+		})
+})
 	$scope.coords.$on('child_added',function(snapshot){
 		//console.log(snapshot.snapshot.name);
-		var coords = snapshot.snapshot.name.split(':');
-		var x = coords[0];
-		var y = coords[1];
-		//console.log(coords);
-	/*
-				ctx.beginPath();//le digo a canvas q empezare a rgaficar
-				ctx.lineWidth = 1;
-				ctx.strokeStyle = "#000000";
-				ctx.strokeRect(x,y,1,1);
-				ctx.stroke();
-	*/	
-		ctx.lineTo(x,y)
-		ctx.stroke()	
+		//ctx.beginPath();
+			var coords = snapshot.snapshot.name.split(':');
+			var x = coords[0];
+			var y = coords[1];
+		console.log(inicio);
+		if(!inicio){
+				ctx.beginPath()
+				ctx.strokeStyle = "#000000"
+				ctx.lineCap = "round"
+				ctx.lineWidth = 2
+				ctx.moveTo(x-1,y-1);
+
+				ctx.lineTo(x,y)
+				ctx.stroke()
+				ctx.closePath();
+		/*
+			ctx.fillStyle="#000000"
+			angular.forEach([0,1,2],function(key,val){
+				ctx.fillRect(x-key,y-key,key,key)
+				//ctx.fillRect(x,y,key,key)
+			})
+		*/
+		}else{
+			ctx.lineTo(x,y)
+			ctx.stroke()
+		}
+		
+
 	})
 
 	//$scope.boardRef.$bind($scope,'coords');
