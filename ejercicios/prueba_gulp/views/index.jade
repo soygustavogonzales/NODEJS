@@ -1,0 +1,8 @@
+extends layout
+block content
+	p
+		|Lo que ves es lo real?
+		ul
+			each val,index in ['rojo','azul','verde','amarillo']
+				li(class= val)
+					=val + ' in ' + index 
