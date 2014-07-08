@@ -44,7 +44,6 @@ gulp.task('default',function(){
 		gulp.src('css/dev/styles.css')
   .pipe(uncss({
       html: ['index.html'],
-      
   }))
   .pipe(gulp.dest('./out'));
 	

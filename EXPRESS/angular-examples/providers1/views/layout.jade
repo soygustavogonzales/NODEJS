@@ -1,0 +1,16 @@
+doctype html
+html(ng-app="myapp")
+	head
+		title #{title}
+		link(rel="stylesheet",href="/bower_components/flatstrap/dist/css/flatstrap.min.css")
+		link(rel="stylesheet",href="/bower_components/flatstrap/dist/css/flatstrap-theme.min.css")
+		block links
+		block style
+	body
+		block content
+		block import
+			script(src="/bower_components/jquery/dist/jquery.min.js")
+			script(src="/bower_components/flatstrap/dist/js/flatstrap.min.js")
+			script(src="/bower_components/angular/angular.min.js")
+			block sub_import
+			script(src="/javascripts/development/#{app}.js")

@@ -88,22 +88,22 @@ myBoard.controller('ctrlBoard', ['$scope','svsBoard', function ($scope,svsBoard)
 			var y = coords[1];
 		console.log(inicio);
 		if(!inicio){
+		/*
 				ctx.beginPath()
 				ctx.strokeStyle = "#000000"
 				ctx.lineCap = "round"
 				ctx.lineWidth = 2
-				ctx.moveTo(x-1,y-1);
+				ctx.moveTo(x-1.9,y-1.9);
 
 				ctx.lineTo(x,y)
 				ctx.stroke()
 				ctx.closePath();
-		/*
+		*/
 			ctx.fillStyle="#000000"
 			angular.forEach([0,1,2],function(key,val){
 				ctx.fillRect(x-key,y-key,key,key)
-				//ctx.fillRect(x,y,key,key)
+				ctx.fillRect(x,y,key,key)
 			})
-		*/
 		}else{
 			ctx.lineTo(x,y)
 			ctx.stroke()

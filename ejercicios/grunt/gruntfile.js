@@ -3,18 +3,24 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-      uncss: {
-          dist: {
-              files: [
-                  { src: 'index.html', dest: 'mini.css' }
-              ]
-          }
+    uncss: {
+      dist: {
+        src: ['/tests/index.html','/tests/index.html'],
+        dest: '/dist/tidy.css'
+      },
+      test: {
+        files: {
+          '/tidy.css': ['/index.html']
+        },
+        options: {
+          report: 'gzip'
         }
-      ,
+      }
+    },
       less:{
         compile:{
           files:{
-            'styles.css':'styles.less'
+            '/styles.css':'/styles.less'
           }
         }
       }
