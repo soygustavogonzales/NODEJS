@@ -4,8 +4,10 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session')
 var routes = require('./routes/index');
+var files = require('./routes/files');
+//var extend = require('extend')
 
 
 var app = express();
@@ -19,9 +21,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({secret: 'mi secreto'}));
+var nroDays = 8, time = nroDays*24*3600*1000;
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/documents', files);
 
 
 /// catch 404 and forwarding to error handler
@@ -44,6 +50,13 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
+// will print stacktrace
+if (app.get('env') === 'production') {
+
+    app.use(express.static(path.join(__dirname, 'public'),{maxAge:time}));
+}
+
 
 // production error handler
 // no stacktraces leaked to user

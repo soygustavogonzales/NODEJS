@@ -1,0 +1,13 @@
+extends layout
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css")
+block content
+	h1= title
+	#web
+		button.btn(ng-click="myapp.toggle=!myapp.toggle")|Toggle animation
+		.toggle(ng-if="myapp.toggle")|Some content here
+		button.btn(ng-click="myapp.toggle_=!myapp.toggle_")|Toggle animation
+		.toggle_(ng-if="myapp.toggle_")|Some content here
+block sub_import
+	script(src="/bower_components/angular-animate/angular-animate.min.js")
