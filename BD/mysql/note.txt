@@ -1,0 +1,19 @@
+#NOTAS DEL AUTOR:
+
+#Para instalar mysql:
+ sudo apt-get install mysql-server
+#Para verificar la la correcta instalacion:
+	sudo netstat -tap | grep mysql
+	#Deberia aparecer en el terminal algo parecido a:
+   tcp        0      0 localhost.localdo:mysql *:*                     LISTEN      13059/mysqld 
+#Para empezar a usar mysql:
+ mysql -u root -p
+#Para ver las bases de datos instaladas:
+ show databases;
+#Iniciar mysql in ubuntu
+/etc/init.d/mysqld start
+#Parar mysql
+/etc/init.d/mysqld stop
+#reiniciar mysql
+/etc/init.d/mysqld restart
+

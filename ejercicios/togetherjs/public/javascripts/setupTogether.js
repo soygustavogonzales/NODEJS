@@ -1,0 +1,2 @@
+TogetherJSConfig_disableWebRTC = true
+TogetherJSConfig_cloneClicks = true

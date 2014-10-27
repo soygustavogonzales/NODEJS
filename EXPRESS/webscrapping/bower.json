@@ -1,0 +1,23 @@
+{
+  "name": "webscrapping to google images",
+  "version": "0.0.0",
+  "homepage": "https://github.com/soygustavogonzales/NODEJS",
+  "authors": [
+    "Gustavo <gustavo.gonda@gmail.com>"
+  ],
+  "dependencies":{
+    "angular":"1.2.16",
+    "angular-route":"latest",
+    "jquery":"latest",
+    "jqueryui":"latest",
+    "flatstrap":"latest"
+    },
+  "description":"webscrapping a google images",
+  "keywords": [
+    "angular",
+    "nodejs",
+    "express"
+  ],
+  "license": "MIT",
+  "private": true
+}

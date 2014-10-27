@@ -12,7 +12,7 @@ var options = {
 }
 request(options,function(err,resp,html){
 	//html: una cadena que contiene todo el DOM de la pagina solicitada
-		if(!err&&resp.statusCode==200){//si no hat error y si la pagina si existe(pagina encontrada-rpta. del servidor-)
+		if(!err&&resp.statusCode==200){//si no hay error y si la pagina si existe(pagina encontrada-rpta. del servidor-)
 			l(typeof(html));//=> true
 			l(html);//=> true
 			var $ = cheerio.load(html);//mediante $ se puede acceder al DOM del documento de la pagina 

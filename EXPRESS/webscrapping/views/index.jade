@@ -1,0 +1,10 @@
+extends layout
+
+block content
+		ol
+			if (imgs)
+				each img in imgs
+					li
+						img(src="#{img}")
+			else
+				b|Google Image scrapping ...

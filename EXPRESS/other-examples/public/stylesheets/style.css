@@ -1,0 +1,45 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+html,body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+body{
+  overflow-y: scroll;
+
+}
+a {
+  color: #00B7FF;
+}
+					#post{
+						height:100%;
+						width:100%;
+						background:#E26363;
+					}
+					#post .item {
+						height:400px;
+						width: 100%;
+					}
+					#loader{
+						position: fixed;
+						left:0;
+						bottom: 0;
+						right:0;
+						margin:auto;
+					}
+					.box-little{
+						width: 190px;
+						height: 180px;
+						overflow-y: scroll;
+						position: absolute;
+						z-index: 2;
+						background: #eee;
+						top: 0;
+					}
+					.box-little .item{
+							background: #B5B5B5;
+					}
