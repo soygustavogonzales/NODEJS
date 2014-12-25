@@ -7,7 +7,6 @@ block content
 			select(ng-model="countSelection",ng-options="n for n in [1,5,10,15,20]")
 			ul
 				li(ng-repeat="(key, person) in people")
-					{{person.fname}}
+					|{{person.fname}}
 block sub_import
 	script(src="/bower_components/angular-resource/angular-resource.min.js")
-
