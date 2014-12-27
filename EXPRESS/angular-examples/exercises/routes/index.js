@@ -27,6 +27,17 @@ router.get('/:tema', function(req, res,next) {
 		res.send(result);
 });
 
+router.post('/login',function(req,res,next){
+	var dni = req.body.dni;
+	var pwd = req.body.pwd;
+	
+	res.json({
+		dni:dni,
+		pwd:pwd
+	})
+
+});
+
 router.get('/users/:user', function(req, res){
 	var name = (req.params.user)
 

@@ -8,9 +8,8 @@ html(ng-app="myapp")
 		block style
 	body
 		block content
+		script(src="/bower_components/jquery/dist/jquery.min.js")
+		script(src="/bower_components/flatstrap/dist/js/flatstrap.min.js")
+		script(src="/bower_components/angular/angular.min.js")
 		block import
-			script(src="/bower_components/jquery/dist/jquery.min.js")
-			script(src="/bower_components/flatstrap/dist/js/flatstrap.min.js")
-			script(src="/bower_components/angular/angular.min.js")
-			block sub_import
-			script(src="/javascripts/development/#{app}.js")
+		script(src="/javascripts/development/#{app}.js")
