@@ -11,6 +11,7 @@
     ,"angular-animate":"latest"
     ,"jquery":"latest"
     ,"flatstrap":"latest"
+    ,"angular-ui-utils":"latest"
   }
   ,"description": "example with providers",
   "keywords": [
