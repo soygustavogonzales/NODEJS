@@ -8,6 +8,10 @@ var jade2html = require('../modules/jade2html.js');
 router.get('/',function(req,res){
 	res.render("index")
 })
+router.get('/partials/:partial',function(req,res,next){
+	var partial = req.params.partial
+	res.render('partials/'+partial)
+})
 router.get('/:tema', function(req, res,next) {
 	var tema = req.params.tema;
 	/*

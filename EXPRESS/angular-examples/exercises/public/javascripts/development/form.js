@@ -10,39 +10,55 @@ myapp.controller('ctrlForm', ['$scope', function($scope){
 	}
 
 }]);
+myapp.factory('ftyConnections', [function(){
+	return {
+		getName : function(){
+			return "GG"
+		}	
+	};
+}]);
 
-myapp.directive('dni', [function(){
+myapp.directive('dni', ['ftyConnections','$http',function(ftyConnections,$http){
 	// Runs during compile
 	return {
-		require: 'ngModel',
-		controller:function($scope){
-			$scope.clear = function(){
-				if($scope.dni)
-					$scope.dni = $scope.dni.replace(/[^0-9]/ig,'');
-				//console.log($scope)
+		restrict:"E"
+		,require: 'ngModel'
+		,compile:function(ele,attrs){
+			console.log(attrs)
+			var input = ele.find('input')
+			var js = JSON.parse(eval(JSON.stringify(attrs.ngg)))
+			for(ngAttr in js){
+					input.attr(ngAttr, js[ngAttr])
 			}
-		},
-		link: function($scope, ele, attrs, ngModel) {
+			myapp["drv-dni"] = attrs
+			for(key in attrs.$attr){
+				if(key==="ngg")
+					continue
+				console.log(key)
+				input.attr(key, attrs[key])
+			}
+		}
+		,templateUrl:"/partials/dni-input"
+		,controller:function($scope,$sce){
+			//console.log($sce)
+			console.log($scope.form)
+			console.log(myapp["drv-dni"].required!=undefined)
+			$scope.clear = function(){
+				if($scope.dni&&myapp["drv-dni"].required!=undefined) {
+					$scope.dni = $scope.dni.replace(/[^0-9]/ig,'');
+					if($scope.dni.length<8)
+						$scope.form.dni.$setValidity("minlength",false)
+					else
+						$scope.form.dni.$setValidity("minlength",true)
+				}
+			}//.clear
+		}
+		,link: function($scope, ele, attrs, ngModel) {
+			/*
 			ele.bind('keydown',function(event) {
-				if($scope.dni&&$scope.dni.length<8){
-						console.log($scope.dni.length<8)
-						//ngModel.$setValidity(false)
-				}
-				else{
-
-						ngModel.$setValidity(true)
-						console.log($scope.dni.length<8)
-				}
-						/*
-								$scope.$apply(function(){
-									console.log($scope)
-									ngModel.$setViewValue("123")
-									ngModel.$render()
-
-								})
-						*/
-				
 			});
+			*/
+
 		}
 	};
 }]);

@@ -10,11 +10,11 @@ block content
 				.form-group
 					.input-group
 						span.input-group-addon|DNI
-						input.form-control.dni(ng-model="dni",name="dni",dni,ng-change="clear()",ng-class="{warning:form.dni.$invalid}",maxlength="8",type="text",placeholder="tu dni",required)
-						//dni(icon="hola",ng-model="dni_")
+						dni(data-ngg='{"ng-class":"{warning:form.dni.$invalid}","ng-model":"dni"}',data-id="dni",data-maxlength="8",type="text",data-placeholder="tu dni",data-required)
 				.form-group
 					.input-group
 						span.input-group-addon|PWD
 						input.form-control.pwd(ng-model="pwd",name="pwd",ng-class="{warning:form.pwd.$invalid}",type="password",maxlength="10",ng-minlength="8",ng-maxlength="10",placeholder="tu password",required)
 				.form-group
 					input.form-control.btn-primary(type="submit",value="ENTER",ng-disabled="form.$invalid")
+	.row(ng-view="form")
