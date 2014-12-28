@@ -5,16 +5,20 @@ block links
 block content
 	h2 #{title}
 	.row
-		legend.col-sm-6(ng-controller="ctrlForm")
+		.col-sm-4
+		legend.col-sm-4(ng-controller="ctrlForm")
 			form.form(id="form",name="form", method="post", action="/login",ng-submit="validate()",novalidate)
 				.form-group
 					.input-group
 						span.input-group-addon|DNI
-						dni(data-ngg='{"ng-class":"{warning:form.dni.$invalid}","ng-model":"dni"}',data-id="dni",data-maxlength="8",type="text",data-placeholder="tu dni",data-required)
+						dni(data-ngg='{"ng-class":"{warning:form.dni.$invalid}","ng-model":"dni","ng-change":"clear()"}',data-class="dni form-control",data-id="dni",data-name="dni",data-maxlength="8",data-type="text",data-placeholder="tu dni",data-required,data-opts='{"nameForm":"form"}')
 				.form-group
 					.input-group
 						span.input-group-addon|PWD
 						input.form-control.pwd(ng-model="pwd",name="pwd",ng-class="{warning:form.pwd.$invalid}",type="password",maxlength="10",ng-minlength="8",ng-maxlength="10",placeholder="tu password",required)
 				.form-group
 					input.form-control.btn-primary(type="submit",value="ENTER",ng-disabled="form.$invalid")
-	.row(ng-view="form")
+		.col-sm-4
+	.row
+		form(name="form_",novalidate)
+			dni(data-ngg='{"ng-class":"{warning:form_.dni_.$invalid}","ng-model":"dni_","ng-change":"clear()"}',data-class="dni_",data-id="dni_",data-name="dni_",data-maxlength="10",data-type="text",data-placeholder="tu dni",data-required,data-opts='{"nameForm":"form_"}')
