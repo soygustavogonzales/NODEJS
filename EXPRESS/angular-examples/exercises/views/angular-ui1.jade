@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	.row
+		.col-sm-4
+		legend.col-sm-4(ng-controller="ctrlForm")
+			form.form(novalidate)
+				.form-group
+					.input-group
+						span.input-group-addon|celular
+						input.form-control(ui-mask="(+99) 999 - 999 - 999",ng-model="celular",type="text",required,placeholder="")
+					.input-group
+						span.input-group-addon|date
+						input.form-control(ui-mask="99-99-99",ng-model="date",type="text",required,placeholder="DD-MM-YY")
+			span
+				code|A
+				|: Cualquier letra </br>
+				code|9
+				|: Cualquier numero </br>
+				code|*
+				|: Cualquier caracter(alfanumerico) </br>
+		.col-sm-4
+	.row
+		.col-sm-4
+		.col-sm-4
+			div(ng-controller="ctrlScroll")
+				div(ui-scroll="item in datasource")|{{$index + ' - '+item}}
+			a(title="Easiest. Binding. Ever!", ui-jq="tooltip")|Hover over me for static Tooltip </br>
+			span(title="other tooltip in <span>!", ui-jq="tooltip")|Hover over me
+				//div(ui-scroll-viewport)
+		.col-sm-4
+block import
+	script(src="/bower_components/angular-ui-utils/ui-utils.min.js")
