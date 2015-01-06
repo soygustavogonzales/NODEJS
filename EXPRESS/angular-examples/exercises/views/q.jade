@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	h1| #{title}
+	#web(ng-controller="ctrlApp")
+		#content
+			|{{model.message}}
