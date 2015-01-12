@@ -1,15 +1,5 @@
 var myapp = angular.module('myapp', []);
-/*
-myapp.config(function($routeProvider){
-	$routeProvider
-	.when('/',
-		{
-			templateUrl:"app.html"
-			,controller:"ctrlApp"
-		});
-	
-});
-*/
+
 var ctrlApp = function($scope,$q){
 	
 		var defer  = $q.defer();
@@ -32,5 +22,5 @@ var ctrlApp = function($scope,$q){
 
 };
 
-ctrlApp.$injector('$scope','$q')
+ctrlApp.$injector = ['$scope','$q']
 myapp.controller('ctrlApp', ctrlApp)

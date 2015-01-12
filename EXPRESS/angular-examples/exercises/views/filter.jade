@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	#web
+		section.container(ng-controller="ctrlMyData")
+			table.table.table-bordered.table-striped
+				thead
+					each val in ['ID','Sales Name (Initials)','Addres','Email','Born Date','Bonus','Salary','Total']
+						td| #{val}
+				tbody
+					tr(ng-repeat="user in users | orderBy:total")
+						each val in ['user.id','user.fname + " " + user.lname| initials','user.street','user.email','user.born ','user.bonus | currency','user.salary | currency','user.bonus + user.salary | currency']
+							td|{{#{val}}}
