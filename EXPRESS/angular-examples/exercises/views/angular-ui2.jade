@@ -1,0 +1,18 @@
+extends layout
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css")
+block content
+	h1|HOLA
+	.row
+		.col-sm-4
+			section(ng-controller="ctrlMyData")
+				h1| Hightlight
+				.well
+					label|Case sensitive?
+					input(type="checkbox",ng-model="caseSensitive")
+					input(type="text",ng-model="text",placeholder="text")
+					p(ng-bind-html-unsafe='"{{paragraph}}" | highlight:text')
+						|{{paragraph}}
+block import
+	script(src="/bower_components/angular-ui-utils/ui-utils.min.js")

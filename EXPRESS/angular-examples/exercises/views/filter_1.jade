@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	#web
+		section.container(ng-controller="ctrlMyData")
+			.row
+				.col-sm-12
+					.input-group
+						span.input-group-addon: i.glyphicon.glyphicon-search
+						input.form-control(type="text",ng-model="search",placehoder="search a Sales employeed")
+			table.table.table-bordered.table-striped
+				thead
+					each val in ['ID','Name','Addres','Email','Born Date','Bonus','Salary']
+						td| #{val}
+				tbody
+					tr(ng-repeat="user in users | filter: search")
+						each val in ['user.id','user.fname','user.street','user.email','user.born','user.bonus | currency','user.salary | currency']
+							td|{{#{val}}}
