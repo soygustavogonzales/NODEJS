@@ -6,12 +6,13 @@
     "Gustavo <gustavo.gonda@gmail.com>"
   ]
   ,"dependencies":{
-    "angular":"1.2.16"
+    "angular":"1.2.18"
     ,"angular-resource":"latest"
     ,"angular-animate":"latest"
     ,"jquery":"latest"
     ,"flatstrap":"latest"
     ,"angular-ui-utils":"latest"
+    ,"angular-material":"latest"
   }
   ,"description": "example with providers",
   "keywords": [

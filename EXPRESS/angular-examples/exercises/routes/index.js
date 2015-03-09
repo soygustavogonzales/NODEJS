@@ -10,7 +10,14 @@ router.get('/',function(req,res){
 })
 router.get('/partials/:partial',function(req,res,next){
 	var partial = req.params.partial
-	res.render('partials/'+partial)
+	var ext = partial.split('.').pop()
+	if(ext=="html"){
+		console.log(ext)
+		console.log(partial)
+		res.sendfile('./views/partials/'+partial)
+	}else{
+		res.render('partials/'+partial)
+	}
 })
 router.get('/:tema', function(req, res,next) {
 	var tema = req.params.tema;
