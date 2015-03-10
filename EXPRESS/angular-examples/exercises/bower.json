@@ -6,7 +6,7 @@
     "Gustavo <gustavo.gonda@gmail.com>"
   ]
   ,"dependencies":{
-    "angular":"1.2.18"
+    "angular":"1.3.14"
     ,"angular-resource":"latest"
     ,"angular-animate":"latest"
     ,"jquery":"latest"
