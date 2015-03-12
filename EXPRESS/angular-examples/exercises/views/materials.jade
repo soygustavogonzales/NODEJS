@@ -6,27 +6,32 @@ block links
 block content
 	#web
 		.content
-			md-select(ng-model="someModel")
-				md-select-label|elija
-				md-option(ng-value="opt1")|hola
-				md-option(ng-value="opt2")|hola1
-				md-option(ng-value="opt3")|hola2
-				md-option(ng-value="opt4")|hola3
-			md-progress-circular(md-mode="indeterminate")
-			md-slider.md-primary(flex="10",md-discrete,ng-model="rating3",step="1",min="1",max="5",aria-label="rating")
-			md-button.md-primary()|BUTTON
-			md-input-container
-				label|nombre
-				input(ng-model="name")
-		div(layout="row",ng-controller="ctrlData")
-			md-sidenav.md-sidenav-left(md-component-id="left")
-				|left nav
-			md-content
-				|center content
-				md-cutton(ng-click="openLeft()")
-				|open left menu
-			md-sidenav.md-sidenav-right(md-component-id="right",md-is-locked-open="$mdMedia('min-width: 333px')")
-				|right nav
+			.div
+				md-select(ng-model="someModel")
+					md-select-label|elija
+					md-option(ng-value="opt1")|hola
+					md-option(ng-value="opt2")|hola1
+					md-option(ng-value="opt3")|hola2
+					md-option(ng-value="opt4")|hola3
+				md-progress-circular(md-mode="indeterminate")
+				md-slider.md-primary(flex="10",md-discrete,ng-model="rating3",step="1",min="1",max="5",aria-label="rating")
+				md-button.md-primary()|BUTTON
+				md-input-container
+					label|nombre
+					input(ng-model="name")
+			md-content.md-padding(layout="column",ng-controller="ctrlData as ctrl")
+				md-autocomplete(
+					ng-disabled="ctrl.isDisabled",
+     md-no-cache="ctrl.noCache",
+					md-selected-item="ctrl.selectedItem",
+					md-search-text="ctrl.searchText",
+					md-items="item in ctrl.querySearch(ctrl.searchText)",
+					md-item-text="item.display",
+					placeholder="What is your favorite US state?")
+					span(md-highlight-text="ctrl.searchText")|{{item.display}}
+				md-checkbox(ng-model="ctrl.simulateQuery")|Simulate query for 
+				md-checkbox(ng-model="ctrl.noCache")|Disable caching of
+				md-checkbox(ng-model="ctrl.isDisabled")|Disable the input?
 block import
 	script(src="/bower_components/angular-aria/angular-aria.min.js")
 	script(src="/bower_components/angular-animate/angular-animate.min.js")
