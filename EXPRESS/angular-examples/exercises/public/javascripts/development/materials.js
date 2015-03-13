@@ -1,6 +1,22 @@
 var myapp = angular.module('myapp', ['ngMaterial']);
-myapp.controller('ctrlData'	, ['$timeout', '$q', DemoCtrl])
-function DemoCtrl ($timeout, $q) {
+myapp.controller('ctrlData'	, ['$timeout', 'svcPersons', DemoCtrl])
+myapp.service('svcPersons',['$q','$http',function($q,$http){
+	this.getPersonsByQuery = function(query){
+  	 var config = {
+        params: {
+            'rows': 10,
+            'value': query,
+            'lname': '{lastName}',
+            'tel': '{phone|format}',
+            'callback': "JSON_CALLBACK"
+        }
+    }
+    
+    return $http.jsonp("http://www.filltext.com", config, {});
+	}
+}]);
+
+function DemoCtrl ($timeout, svcPersons) {
   var self = this;
 
   // list of `state` value/display objects
@@ -11,42 +27,23 @@ function DemoCtrl ($timeout, $q) {
   self.simulateQuery = false;
   self.isDisabled    = false;
 
-  // ******************************
-  // Internal methods
-  // ******************************
-
-  /**
-   * Search for states... use $timeout to simulate
-   * remote dataservice call.
-   */
   function querySearch (query) {
   	/*
-  	 var config = {
-        params: {
-            'rows': 5,
-            'fname': '{firstName}',
-            'lname': '{lastName}',
-            'tel': '{phone|format}',
-            'callback': "JSON_CALLBACK"
-        }
-    }
-    $http.jsonp("http://www.filltext.com", config, {}).success(function (data) {
-        $scope.users = data
-    });
   	*/
+    var promise = svcPersons.getPersonsByQuery(angular.lowercase(query))
+    promise.then(function(response){
+    		console.log(response.data)
+    		return response.data;
+    }, function(err){
+    	console.log(err);
+    });
+
     var results = query ? self.states.filter( createFilterFor(query) ) : [],deferred;
     //console.log(self.states);
     //console.log(self.states.filter( createFilterFor(query)	))
-    //console.log(results)
-    	return results;
-    /*
-    if (self.simulateQuery) {
-      deferred = $q.defer();
-      $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
-      return deferred.promise;
-    } else {
-    }
-    */
+    console.log(results)
+    		return results;
+
 
   }
 
