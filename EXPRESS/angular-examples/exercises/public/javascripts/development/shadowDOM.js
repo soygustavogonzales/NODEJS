@@ -14,19 +14,26 @@ myapp.directive('drvCard', ['$http','$compile', function($http,$compile){
 			data:"="
 		}, 
 		controller: function($scope, $element, $attrs) {
-			//console.log($scope.data)
 			$scope.contact = $scope.data
 		},
 		restrict: 'E',
 		link: function($scope, iElm, iAttrs, controller) {
-			var htmlDOM = null;
+			var htmlDOM = null,$htmlDOM = null;
+			$scope.clean = function(){
+				console.log($scope.name)
+			}
 				$http.get('/partials/drv-card.jade')
 				.then(function(response){
 					htmlDOM = $compile(response.data)($scope)[0]
+					$htmlDOM = $(htmlDOM);
+					$htmlDOM.find('h3').click(function(event) {
+						console.log("click en H3")
+					});
+					//console.log($htmlDOM)
 				}, function(err){console.log(err.data)})
 				.then(function(data){
 						var root = iElm[0].createShadowRoot()
-						$(root).append(htmlDOM)
+						$(root).append($htmlDOM)
 				})
 		}
 	};

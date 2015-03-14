@@ -1,0 +1,60 @@
+:host > div{
+	background: #F7F7F7;
+	width: 200px;
+	height: auto;
+	border-radius:0%;
+	font-family: sans-serif;
+	color:#665E5E;
+	-webkit-filter:blur(.2em);
+	transition:all .55s;
+	border-top-right-radius: 0%;
+	border-top-left-radius: 0%;
+}
+:host > div:hover{
+	-webkit-filter:blur(.001em);
+}
+
+hgroup h3,h4{
+	color:inherit;
+	display: inline-block;
+	text-align: center;
+}
+hgroup{
+	width: 100%;
+	text-align: center;
+}
+input[name="name"]{
+	background: transparent;
+	outline: none;
+	border: none;
+	font-family: inherit;
+	color: inherit;
+	border-bottom: .1em dotted #646464;
+	padding: .2em .3em;
+	text-align: center;
+}
+div.content{
+	margin: 0 auto;
+	width:180px;
+	padding: 5px 10px;
+}
+.row{
+	margin:.3em auto;
+}
+address{
+	text-align: center;
+}
+figure{
+	margin: .27em 0 0 0;
+	padding-top: 1.4em;
+}
+figure > .avatar {
+	width: 150px
+	zoom: 1.3;
+	text-align: center;
+}
+img{
+	width: 70%;
+	border-radius:72%;
+	border:10px solid white;
+}

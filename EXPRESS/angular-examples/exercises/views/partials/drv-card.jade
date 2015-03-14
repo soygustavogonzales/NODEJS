@@ -1,10 +1,18 @@
 .card
-	|<style media='screen' type='text/css'>
-	|	h4 {
-	|		color:peru
-	|	}
+	|<style>
+	|	@import url("/stylesheets/partials/drv-card.css")
 	|</style>
-	h3|{{contact.name}}
-	h4|{{contact.lastname}}
-	address|Email contact
-		a(href="emailto:{{contact.email}}")|send mail
+	.row
+		figure
+			.avatar
+				img(src='http://img2.wikia.nocookie.net/__cb20110807191849/powerlisting/images/7/77/Cerebro_dr_charles_xavier.png')
+	div.content
+		.row
+		.row
+			hgroup
+				h3|{{contact.name}} {{contact.lastname}}
+		.row
+			input(name="name",type="text",ng-model="contact.name",value="contact.name",ng-change="clean()")
+		.row
+			address
+				a(href="emailto:{{contact.email}}")| {{contact.email}}

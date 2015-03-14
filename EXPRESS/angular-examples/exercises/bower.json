@@ -4,17 +4,18 @@
   "homepage": "https://github.com/soygustavogonzales/NODEJS",
   "authors": [
     "Gustavo <gustavo.gonda@gmail.com>"
-  ]
-  ,"dependencies":{
-    "angular":"1.3.14"
-    ,"angular-resource":"latest"
-    ,"angular-animate":"latest"
-    ,"jquery":"latest"
-    ,"flatstrap":"latest"
-    ,"angular-ui-utils":"latest"
-    ,"angular-material":"latest"
-  }
-  ,"description": "example with providers",
+  ],
+  "dependencies": {
+    "angular": "1.3.14",
+    "angular-resource": "latest",
+    "angular-animate": "latest",
+    "jquery": "latest",
+    "flatstrap": "latest",
+    "angular-ui-utils": "latest",
+    "angular-material": "latest",
+    "polymer": "0.5.5"
+  },
+  "description": "example with providers",
   "keywords": [
     "providers"
   ],
