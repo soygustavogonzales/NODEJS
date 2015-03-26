@@ -34,19 +34,19 @@ myapp.directive('drvCard', ['$http','$compile', function($http,$compile){
 					//console.log($htmlDOM)
 				}, function(err){console.log(err.data)})
 				.then(function(data){
-						var root = iElm[0].createShadowRoot()
-						$(root).append($htmlDOM)
 						//$('.ocontent').append(iElm)
 
-					var XFoo = document.registerElement('drv-new-card',{
+					var XFoo = document.registerElement('drv-card',{
 						  prototype: Object.create(HTMLButtonElement.prototype),
 	  					extends: 'div'
 					});
 					var xfoo = new XFoo()
-					var $xfoo = $(xfoo)
-					$xfoo.append(iElm)
-					//console.log(parent[0].classList)
-					parent.append($xfoo);
+					iElm.append(xfoo)
+					var root = xfoo.createShadowRoot()
+					$(root).append($htmlDOM)
+					var son = iElm.children('[is]');
+					iElm.remove()
+					parent.append(son)
 				})
 		}
 	};
