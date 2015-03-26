@@ -1,0 +1,11 @@
+extends layout
+
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css/")
+block content
+	#web
+		.content(ng-controller="ctrlData")
+			drv-card(data="visitor")
+			span|sample text
+			.ocontent
