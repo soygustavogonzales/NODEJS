@@ -18,9 +18,7 @@ myapp.directive('drvCard', ['$http','$compile', function($http,$compile){
 		},
 		restrict: 'E',
 		link: function($scope, iElm, iAttrs, controller) {
-			var parent = iElm.parent()
-			//console.log(parent);
-			var htmlDOM = null,$htmlDOM = null;
+			var htmlDOM = null,$htmlDOM = null, Shadow = null, shadow = null,root = null,son = null;
 			$scope.clean = function(){
 				console.log($scope.name)
 			}
@@ -34,20 +32,17 @@ myapp.directive('drvCard', ['$http','$compile', function($http,$compile){
 					//console.log($htmlDOM)
 				}, function(err){console.log(err.data)})
 				.then(function(data){
-						//$('.ocontent').append(iElm)
-
-					var XFoo = document.registerElement('drv-card',{
-						  prototype: Object.create(HTMLButtonElement.prototype),
-	  					extends: 'div'
-					});
-					var xfoo = new XFoo()
-					iElm.append(xfoo)
-					var root = xfoo.createShadowRoot()
-					$(root).append($htmlDOM)
-					var son = iElm.children('[is]');
-					iElm.remove()
-					parent.append(son)
-				})
+								Shadow = document.registerElement('drv-card',{
+									  prototype: Object.create(HTMLButtonElement.prototype),
+				  					extends: 'div'
+								});
+								shadow = new Shadow()
+								iElm.append(shadow)
+								root = shadow.createShadowRoot()
+								$(root).append($htmlDOM)
+								son = $(iElm.children('[is]'));
+								iElm.replaceWith(son)
+								})
 		}
 	};
 }]);
