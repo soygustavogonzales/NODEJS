@@ -19,9 +19,10 @@ myapp.service('svcShadowDOM',['$http','$q','$compile',function($http,$q,$compile
 				}, function(err){console.log(err.data)})
 				.then(function(data){
 								Shadow = document.registerElement('drv-card',{
-									  prototype: Object.create(HTMLButtonElement.prototype),
+									  prototype: Object.create(HTMLElement.prototype),
 				  					extends: 'div'
 								});
+
 								shadow = new Shadow()
 								iElm.append(shadow)
 								root = shadow.createShadowRoot()
