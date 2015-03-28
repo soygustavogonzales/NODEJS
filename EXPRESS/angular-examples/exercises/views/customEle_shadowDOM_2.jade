@@ -6,5 +6,6 @@ block links
 block content
 	#web
 		.content(ng-controller="ctrlData")
-			drv-card(data="visitor")
-				span|Transclude
+			div
+				drv-card(data="visitor",ng-repeat="visitor in visitors")
+					//drv-card()

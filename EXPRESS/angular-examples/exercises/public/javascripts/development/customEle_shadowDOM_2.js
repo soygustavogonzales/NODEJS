@@ -1,12 +1,48 @@
 var myapp = angular.module("myapp",[]);
 myapp.controller('ctrlData', ['$scope','$timeout',function($scope,$timeout){
-	$scope.visitor = {
-		name:"xavier",
-		lastname:"charles",
-		age:43,
-		addres:"Av gothika",
-		email:"xcharles@xmen.com"
-	}
+	$scope.visitors = [
+			{
+					name:"xavier",
+					lastname:"charles",
+					age:43,
+					addres:"Av gothika",
+					email:"xcharles@xmen.com",
+					avatar:"http://cdn.movieweb.com/img.news/NE3IBkFlPbuF6b_1_2.jpg"
+			},
+			{
+					name:"eduardo",
+					lastname:"petersen",
+					age:43,
+					addres:"Av hon kong",
+					email:"epetersen@xmen.com",
+					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+			},
+						{
+					name:"eduardo",
+					lastname:"petersen",
+					age:43,
+					addres:"Av hon kong",
+					email:"epetersen@xmen.com",
+					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+			},
+						{
+					name:"eduardo",
+					lastname:"petersen",
+					age:43,
+					addres:"Av hon kong",
+					email:"epetersen@xmen.com",
+					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+			}
+			,	{
+					name:"eduardo",
+					lastname:"petersen",
+					age:43,
+					addres:"Av hon kong",
+					email:"epetersen@xmen.com",
+					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+			}
+	]
+
 	var timer = $timeout(function(){
 		console.log($scope);
 	},1000)
@@ -25,10 +61,13 @@ myapp.service('svcShadowDOM',['$http','$q','$compile',function($http,$q,$compile
 								    var shadow = this.createShadowRoot();
 								    shadow.appendChild(htmlDOM);
 								};
+								try{
+										var elemnt = document.registerElement(iElm[0].localName, {
+										    prototype: Elemnt
+										});
+								}catch(e){
 
-								var elemnt = document.registerElement(iElm[0].localName, {
-								    prototype: Elemnt
-								});
+								}
 
 								var drvElemnt = document.createElement(iElm[0].localName);
 								iElm.replaceWith(drvElemnt)
