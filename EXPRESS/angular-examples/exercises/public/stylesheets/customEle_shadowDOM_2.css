@@ -3,7 +3,7 @@ body {
 }
 
 drv-card {
-  width:10em;
+  width:auto;
   display: inline-block;
   float: left;
   margin: 0.5em;
