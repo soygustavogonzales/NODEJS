@@ -1,0 +1,11 @@
+extends layout
+
+block content
+		h1= title
+		p Welcome to #{title}
+		div(ng-controller="ctrlListTwitts")
+			md-content
+				md-list
+					md-subheader.md-no-sticky|3 line item
+					md-list-item.md-3-line(ng-repeat="twitt in twitts track by $index")
+						div.md-list-item-text|{{twitt}}
