@@ -50,7 +50,7 @@ var createFile = function(name,type){
 				content.push('extends layout')
 				content.push('\n')
 				content.push('block links')
-				content.push('\tlink(rel="stylesheet",href="/stylesheets/#{app}.css/")')
+				content.push('\tlink(rel="stylesheet",href="/stylesheets/#{app}.css")')
 				content.push('block content')
 				content.push('\t#web')
 				path = ["./views/",name,".jade"].join('')

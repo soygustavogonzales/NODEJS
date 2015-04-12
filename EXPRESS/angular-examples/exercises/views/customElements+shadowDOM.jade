@@ -1,0 +1,10 @@
+extends layout
+
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css")
+block content
+	#web
+		.content(ng-controller="ctrlData")
+			drv-card(data="visitor")
+			x-clone(data-name="Product Name" data-img="http://img2.wikia.nocookie.net/__cb20110807191849/powerlisting/images/7/77/Cerebro_dr_charles_xavier.png")
