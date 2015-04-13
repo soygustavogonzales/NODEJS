@@ -21,21 +21,51 @@ myapp.service('svcSocket', ['$rootScope', function($rootScope){
      });
    })
 	};
-}])
+}]);
 
 myapp.controller('ctrlListTwitts', ['svcSocket','$scope', function(svcSocket,$scope){
-	$scope.twitts = []
+			svcSocket.on('connect', function(){
+					$scope.find = function(query,$event,list){
+						console.log(list)
+						//console.log($event.keyCode)
+						if($event.keyCode==13&&query){
+							console.log("searching >")
+										svcSocket.emit('search',{query:query,list:list})
+										$scope[list] = new Array()
+						}
+					}
+			})
+	svcSocket.on('new_tweet',function(opt){
+		//console.log(opt)
+		//console.log($scope)
 
-	svcSocket.on('connect', function(){
-			svcSocket.emit('search',{query:'justin'})
+		$scope[opt.list].push(opt.text)
 	})
-	svcSocket.on('new_tweet',function(data){
-		//console.log(data)
-		$scope.twitts.push(data)
-	})
 
-}])
+}]);
+/*
+myapp.directive('', ['', function(){
+	// Runs during compile
+	return {
+		// name: '',
+		// priority: 1,
+		// terminal: true,
+		// scope: {}, // {} = isolate, true = child, false/undefined = no change
+		controller: function($scope, $element, $attrs, $transclude) {},
+		require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+		// template: '',
+		// templateUrl: '',
+		// replace: true,
+		// transclude: true,
+		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+		link: function($scope, iElm, iAttrs, controller) {
+			
+		}
+	};
+}]);
 
+*/
 /*
 var socket = io.connect(location.host)
 
