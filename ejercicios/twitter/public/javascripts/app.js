@@ -24,6 +24,7 @@ myapp.service('svcSocket', ['$rootScope', function($rootScope){
 }]);
 
 myapp.controller('ctrlListTwitts', ['svcSocket','$scope', function(svcSocket,$scope){
+			$scope.lists = {};
 			svcSocket.on('connect', function(){
 					$scope.find = function(query,$event,list){
 						console.log(list)
@@ -31,7 +32,8 @@ myapp.controller('ctrlListTwitts', ['svcSocket','$scope', function(svcSocket,$sc
 						if($event.keyCode==13&&query){
 							console.log("searching >")
 										svcSocket.emit('search',{query:query,list:list})
-										$scope[list] = new Array()
+										//$scope.$emit('add_segment',{query:query,val:0})
+										$scope.lists[list] = new Array()
 						}
 					}
 			})
@@ -39,40 +41,53 @@ myapp.controller('ctrlListTwitts', ['svcSocket','$scope', function(svcSocket,$sc
 		//console.log(opt)
 		//console.log($scope)
 
-		$scope[opt.list].push(opt.text)
+		$scope.lists[opt.list].push(opt.text)
+				$scope.$emit('update_chart',$scope.lists)
 	})
 
 }]);
-/*
-myapp.directive('', ['', function(){
-	// Runs during compile
+
+myapp.directive('drvChart', [function(){
 	return {
-		// name: '',
-		// priority: 1,
-		// terminal: true,
-		// scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function($scope, $element, $attrs, $transclude) {},
-		require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-		// template: '',
-		// templateUrl: '',
-		// replace: true,
-		// transclude: true,
-		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		link: function($scope, iElm, iAttrs, controller) {
-			
+		template:'<canvas id="myChart" width="400" height="400"></canvas>',
+		controller: function($scope, $element, $attrs) {
+
+		},
+		restrict: 'E', 
+		replace:true,
+		link: function($scope, iElm, iAttrs) {
+			//console.log(iElm)
+				var ctx = iElm[0].getContext("2d");
+				var data = [{value:50,color:"#fb7f50"},{value:50,color:"#ff4771"}]
+				var myNewChart = new Chart(ctx).Pie(data);
+				var colors = ['#cbcbcb','#fb7f50','#ff4771','#549af6']
+				$scope.$on('add_segment',function(e,data){
+							myNewChart.addData({
+								value:data.val,
+								color:colors.pop(),
+								//highlight: "#C69CBE",
+								label: data.query
+							})
+						//myNewChart.update()
+						console.log(myNewChart)
+				})
+				$scope.$on('update_chart',function(e,data){
+					//console.log(data)
+						//myNewChart.segments[0].value = data.twitts1.length;
+						//myNewChart.segments[1].value = data.twitts2.length;
+					Object.keys(data).forEach(function(val, index){
+						
+						myNewChart.segments[0].value = data[val].length;
+						myNewChart.update()
+					})
+					/*
+					data.forEach(function(val,index){
+
+					})
+						console.log(data)
+					*/
+				})
+
 		}
 	};
 }]);
-
-*/
-/*
-var socket = io.connect(location.host)
-
-socket.on('connect',function(){
-	socket.emit('search',{query:'justin'})
-});
-socket.on('new_tweet',function(data){
-	console.log(data)
-})
-*/
