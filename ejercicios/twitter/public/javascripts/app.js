@@ -27,7 +27,7 @@ myapp.controller('ctrlListTwitts', ['svcSocket','$scope', function(svcSocket,$sc
 	$scope.twitts = []
 
 	svcSocket.on('connect', function(){
-			svcSocket.emit('search',{query:'justin'})
+			svcSocket.emit('search',{query:'javascript'})
 	})
 	svcSocket.on('new_tweet',function(data){
 		//console.log(data)
