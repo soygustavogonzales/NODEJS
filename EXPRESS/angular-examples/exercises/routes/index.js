@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var ejs = require('ejs');
+var fs = require('fs');
+var read = fs.readFileSync;
+
 var jade2html = require('../modules/jade2html.js');
 //var jade2html = require('jade2html');
 
@@ -10,15 +14,21 @@ router.get('/',function(req,res){
 })
 router.get('/partials/:partial',function(req,res,next){
 	var partial = req.params.partial
-	var ext = partial.split('.').pop()
-	if(ext=="html"){
-		console.log(ext)
-		console.log(partial)
-		res.sendfile('./views/partials/'+partial)
-	}else{
-		res.render('partials/'+partial)
+	console.log(partial)
+	var ext = path.extname(partial);
+	console.log(ext)
+	//var ext = partial.split('.').pop()
+	switch(ext){
+		case('.html'):
+			res.sendfile('./views/partials/'+partial);
+		case('.ejs'):
+			res.send(ejs.compile(read('./views/partials/'+partial,'utf-8'))());
+		default:
+			res.render('partials/'+partial)
 	}
-})
+
+});
+
 router.get('/:tema', function(req, res,next) {
 	var tema = req.params.tema;
 	/*

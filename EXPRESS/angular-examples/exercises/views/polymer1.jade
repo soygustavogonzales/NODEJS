@@ -1,0 +1,9 @@
+extends layout
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css")
+	link(rel="import",href="../bower_components/polymer/polymer.html")
+	link(rel="import",href="/partials/hello-world.ejs")
+block content
+	#web(ng-controller="ctrlMain")
+		hello-world(name="Adolph",lastname="Hitler",picture="http://www.que.es/archivos/201002/fotos_fotogalerias-gr_arrestados_bill_gates-640x640x80.jpg")

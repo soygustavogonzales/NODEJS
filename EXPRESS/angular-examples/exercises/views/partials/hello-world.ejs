@@ -1,0 +1,57 @@
+<polymer-element name="hello-world" attributes="name,lastname,nationality,picture">
+	<template>
+		<style>
+			h1{
+				font-style: italic underline;
+				color: #BABABA;
+			}
+		</style>
+		<div id="main" ng-controller="ctrlData">
+			<h1>Hello {{name}}, {{lastname}}, {{nationality}}</h1>
+			<img src="{{picture}}" alt="">
+			<input type="text" value="{{name}}">
+			<button>start</button>
+		</div>
+	</template>
+
+		<script>
+			Polymer('hello-world',{
+				nationality:'German',
+				saiHi:function(){
+					this.fire('say-hello',{message:'watsapp!!'})
+					this.picture = "http://images.fastcompany.com/upload/610-e-musk-1.jpg"				
+				},
+				observe:{
+						picture:'updateModel',
+						name:'updateModel'
+				},
+				ready:function(){
+
+				},
+				created:function(e){
+						this.addEventListener('on_',function(e){
+							console.log(e.detail)
+						},false);
+				},
+				updateModel:function(ol,new_){
+					//console.log(new_)
+					this.fire('new_val',{val:new_})
+				},
+				domReady:function(){
+						//console.log($(this.$.main))//hemos convertido el DOM del elemento con id="main" a un objeto nodo de jQuery
+						//console.log(angular.element(this))
+
+						var $btn = $(this.$.main).find('button')
+						//console.log($btn)
+						var self = this
+						$btn.click((function(e){
+														//console.log(e)
+														this.saiHi()
+												}).bind(this)) 
+				}
+			})
+
+		</script>
+		<!-- 
+		 -->
+</polymer-element>
