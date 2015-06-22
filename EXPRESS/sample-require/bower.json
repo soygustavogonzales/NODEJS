@@ -1,0 +1,20 @@
+{
+  "name": "sample-require",
+  "version": "0.0.0",
+  "homepage": "https://github.com/soygustavogonzales/NODEJS",
+  "authors": [
+    "gustavo gonzales <gustavo.gonda@gmail.com>"
+  ],
+  "description": "requiresa-sample",
+  "main": "bin/www",
+  "keywords": [
+    "requirejs",
+    "angularjs"
+  ],
+  "dependencies":{
+    "requirejs":"2.1.17",
+    "angularjs":"latest",
+    "jquery":"latest"
+  },
+  "license": "MIT"
+}

@@ -40,7 +40,6 @@ myapp.controller('ctrlListTwitts', ['svcSocket','$scope', function(svcSocket,$sc
 	svcSocket.on('new_tweet',function(opt){
 		//console.log(opt)
 		//console.log($scope)
-
 		$scope.lists[opt.list].push(opt.text)
 				$scope.$emit('update_chart',$scope.lists)
 	})

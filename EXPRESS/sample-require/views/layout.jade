@@ -1,0 +1,8 @@
+doctype html
+html(ng-app="myapp")
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(data-main="/javascripts/development/app/main",src="/bower_components/requirejs/require.js")

@@ -23,7 +23,7 @@ myapp.controller('ctrlData', ['$scope','$timeout',function($scope,$timeout){
 					age:43,
 					addres:"Av hon kong",
 					email:"epetersen@xmen.com",
-					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+					avatar:"http://st-listas.20minutos.es/images/2013-03/357977/3963449_640px.jpg?1376242191"
 			},
 						{
 					name:"eduardo",
@@ -31,7 +31,7 @@ myapp.controller('ctrlData', ['$scope','$timeout',function($scope,$timeout){
 					age:43,
 					addres:"Av hon kong",
 					email:"epetersen@xmen.com",
-					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+					avatar:"http://www.zonanegativa.com/imagen/1470.jpg"
 			}
 			,	{
 					name:"eduardo",
@@ -39,7 +39,7 @@ myapp.controller('ctrlData', ['$scope','$timeout',function($scope,$timeout){
 					age:43,
 					addres:"Av hon kong",
 					email:"epetersen@xmen.com",
-					avatar:"http://cdn.movieweb.com/img.news/NE9YgLqVwzy2d9_1_2.jpg"
+					avatar:"http://sp3.fotolog.com/photo/19/17/7/kamila_1033/1243449631589_f.jpg"
 			}
 	]
 
@@ -83,7 +83,7 @@ myapp.directive('drvCard',['svcShadowDOM',function(svcShadowDOM){
 			scope:{
 				data:'='
 			},
-			template:'<div><h3>My passport</h3></div>',
+			template:'<div></div>',
 			controller: function($scope, $element, $attrs) {
 				$scope.contact = $scope.data
 			},
