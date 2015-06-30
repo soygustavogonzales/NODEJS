@@ -1,7 +1,8 @@
 define(function(){
-	var ctrlMain = function($scope){
-		$scope.name = "mundo"
+	function ctrlMain ($scope){
+				$scope.name = "mama.."
 	}
-	return ctrlMain
-	
+	return  ctrlMain;
 })
+
+	
