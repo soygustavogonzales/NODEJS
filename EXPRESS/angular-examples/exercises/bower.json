@@ -13,7 +13,8 @@
     "flatstrap": "latest",
     "angular-ui-utils": "latest",
     "angular-material": "latest",
-    "polymer": "0.5.5"
+    "polymer": "0.5.5",
+    "angular-ui": "~0.4.0"
   },
   "description": "example with providers",
   "keywords": [

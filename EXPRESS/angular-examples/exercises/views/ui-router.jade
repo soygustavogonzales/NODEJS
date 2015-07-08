@@ -1,0 +1,15 @@
+extends layout
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css")
+block content
+	#web
+		ul
+			li: a(ui-sref="home") home
+			li: a(ui-sref="about") about
+			li: a(ui-sref="users") users
+			li: a(href="#/users/0101") users
+		hr
+		#content(ui-view)
+block import
+	script(src="/bower_components/angular-ui-router/release/angular-ui-router.js")
