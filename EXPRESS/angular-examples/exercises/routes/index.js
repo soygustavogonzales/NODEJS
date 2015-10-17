@@ -21,8 +21,10 @@ router.get('/partials/:partial',function(req,res,next){
 	switch(ext){
 		case('.html'):
 			res.sendfile('./views/partials/'+partial);
+			break;
 		case('.ejs'):
 			res.send(ejs.compile(read('./views/partials/'+partial,'utf-8'))());
+			break;
 		default:
 			res.render('partials/'+partial)
 	}

@@ -1,0 +1,72 @@
+extends layout
+
+
+block links
+	link(rel="stylesheet",href="/stylesheets/#{app}.css")
+	link(rel="stylesheet",href="/bower_components/angular-material/angular-material.min.css")
+
+block content
+	#web
+		div(layout="row")
+			div  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, ducimus.
+			div  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, eum!
+		div.c-white(layout="column")
+			div  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate!
+			div  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, cumque!
+		div.c-white(layout="row" layout-sm="column")
+			div.bg-red(flex)  
+			div.bg-yellow(flex) 
+		div.c-white(layout="row" layout-padding layout-margin layout-fill)
+			div.bg-green(flex) 
+			div.bg-blue(flex) 
+		div(layout="row" layout-padding layout-wrap).c-white
+			div.bg-blue(flex="33" flex-sm="33")
+			div.bg-green(flex="66" flex-sm="66")
+			div.bg-green(flex="66" flex-sm="66")
+			div.bg-blue(flex="33" flex-sm="33")
+		div(style="height:350px;" layout="row" layout-align="end start")
+			div.small.bg-red one
+			div.small.bg-green two
+			div.small.bg-yellow three
+		div(style="height:350px;" layout="column" layout-align="start start")
+			div.small.bg-red one
+			div.small.bg-green two
+			div.small.bg-yellow three
+		div(style="height:350px;" layout="row" layout-align="start end")
+			div.small.bg-red one
+			div.small.bg-green two
+			div.small.bg-yellow three
+		div(style="height:350px;" layout="row" layout-align="center end")
+			div.small.bg-red one
+			div.small.bg-green two
+			div.small.bg-yellow three
+		div(style="height:350px;" layout="row" layout-align="center start")
+			div.small.bg-red one
+			div.small.bg-green two
+			div.small.bg-yellow three
+		div(style="height:350px;" layout="row" layout-align="center center")
+			div.small.bg-red one
+			div.small.bg-green two
+			div.small.bg-yellow three
+		md-grid-list( md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+       md-row-height-gt-md="1:1" md-row-height="2:2"
+       md-gutter="12px" md-gutter-gt-sm="8px")
+			md-grid-tile.bg-red(md-rowspan="3" md-colspan="2" md-colspan-sm="1")
+				md-grid-tile-footer
+					h3 3x2
+			md-grid-tile.bg-yellow
+				md-grid-tile-footer
+					h3 1x1
+			md-grid-tile.bg-green
+				md-grid-tile-footer
+					h3 1x1
+			md-grid-tile.bg-blue(md-rowspan="2")
+				md-grid-tile-footer
+					h3 1x1
+			md-grid-tile.bg-red(md-rowspan="2" md-colspan="2" md-colspan-sm="1")
+				md-grid-tile-footer
+					h3 2x2
+block import
+	script(src="/bower_components/angular-aria/angular-aria.min.js")
+	script(src="/bower_components/angular-animate/angular-animate.min.js")
+	script(src="/bower_components/angular-material/angular-material.js")

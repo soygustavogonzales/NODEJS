@@ -17,6 +17,11 @@ myapp.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$url
 			templateUrl:'/partials_/users.html',
 			controller:'ctrlUsers'
 		})
+		.state('providers',{
+			url:'/providers/:userId',
+			templateUrl:'/partials_/users.html',
+			controller:'ctrlUsers'
+		})
 }])
 
 myapp.controller('ctrlAbout', ['$scope','$log', function($scope,$log){

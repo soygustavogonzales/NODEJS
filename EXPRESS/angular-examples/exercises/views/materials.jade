@@ -29,6 +29,8 @@ block content
 					md-item-text="item.display",
 					placeholder="What is your favorite US state?")
 					span(md-highlight-text="ctrl.searchText")|{{item.value | uppercase}}
+
+					
 				md-checkbox(ng-model="ctrl.simulateQuery")|Simulate query for 
 				md-checkbox(ng-model="ctrl.noCache")|Disable caching of
 				md-checkbox(ng-model="ctrl.isDisabled")|Disable the input?

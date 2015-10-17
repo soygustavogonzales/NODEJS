@@ -1,0 +1,23 @@
+.bg-green {
+	background-color: #009688;
+}
+.bg-blue {
+	background-color: #3949ab;
+}
+.bg-red {
+	background-color: #d24d57;
+}
+.bg-yellow {
+	background-color: #f5d76e; 
+}
+.c-white{
+	color: white;
+}
+[layout] > div {
+	height:350px;
+}
+
+[layout] > div.small {
+	height:50px;
+	
+}

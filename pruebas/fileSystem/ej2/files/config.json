@@ -1,4 +1,9 @@
 {
 	"name":"gustavo"
-	,"lastname":"gonzales"
+	,"lastname":"gonzales",
+	"array":[
+		{
+				"foo":"bar"
+		}
+	]
 }

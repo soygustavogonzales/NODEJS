@@ -8,7 +8,7 @@ myapp.controller('ctrlMain', ['$scope', function($scope){
 		console.log(e.detail)
 	},false)
 	//console.log(hello.fire)
-	hello.fire('on_',{data:'jajaj'})
+	hello.fire('on_',{data:'desde Angular>ctrlMain'})
 	hello.addEventListener('new_val',function(e){
 		console.log(e.detail)
 	},false)
